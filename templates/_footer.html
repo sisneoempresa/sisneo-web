@@ -1,0 +1,40 @@
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div>
+      <p class="foot-brand">SISNEO</p>
+      <p class="foot-text">Redes, servidores, Azure e IA para empresas. Atendimento direto, sem intermediários.</p>
+      <ul class="seals" aria-label="Segurança e conformidade">
+        <li><svg width="18" height="18" aria-hidden="true"><use href="#i-shield"/></svg>Hospedado no Microsoft Azure</li>
+        <li><svg width="18" height="18" aria-hidden="true"><use href="#i-shield"/></svg>Conexão segura (HTTPS)</li>
+        <li><svg width="18" height="18" aria-hidden="true"><use href="#i-shield"/></svg>Dados tratados conforme a LGPD</li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="foot-h">Contato</h2>
+      <address class="foot-addr">
+        <a href="{{ wa_link() }}" rel="noopener" target="_blank"><svg width="18" height="18" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp {{ E.whatsapp_fmt }}</a>
+        <a href="mailto:{{ E.email }}"><svg width="18" height="18" aria-hidden="true"><use href="#i-mail"/></svg>{{ E.email }}</a>
+        <span><svg width="18" height="18" aria-hidden="true"><use href="#i-pin"/></svg>{{ E.cidade }}, {{ E.uf }}. Presencial no RS, remoto no Brasil.</span>
+      </address>
+    </div>
+    <div>
+      <h2 class="foot-h">Empresa</h2>
+      <p class="foot-text">SISNEO<br>CNPJ {{ E.cnpj }}<br>Responsável: {{ E.responsavel }}</p>
+      <p class="foot-text"><a href="/privacidade">Política de Privacidade (LGPD)</a></p>
+    </div>
+  </div>
+  <div class="wrap foot-base">
+    <span>© {{ year }} SISNEO. Todos os direitos reservados.</span>
+    {% if show_counter %}<span>Visitantes únicos: <strong>{{ counter }}</strong></span>{% endif %}
+  </div>
+</footer>
+
+<div class="wa-wrap">
+  <div class="wa-tip" id="wa-tip" role="status" hidden>
+    <p>Precisa de ajuda com rede ou servidor? Fale agora com o Giani.</p>
+    <button type="button" class="wa-x" aria-label="Fechar aviso">×</button>
+  </div>
+  <a class="wa-btn" href="{{ wa_link('Olá, Giani! Vim pelo site da SISNEO e gostaria de falar sobre TI para minha empresa.') }}" target="_blank" rel="noopener" aria-label="Falar no WhatsApp {{ E.whatsapp_fmt }}">
+    <svg width="34" height="34" aria-hidden="true"><use href="#i-wa"/></svg>
+  </a>
+</div>

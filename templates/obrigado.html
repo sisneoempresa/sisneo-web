@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Recebido | SISNEO{% endblock %}
+{% block robots %}noindex, nofollow{% endblock %}
+{% block canonical %}{{ SITE_URL }}/{% endblock %}
+{% block body %}
+{% include "_header.html" %}
+<main id="conteudo" class="page">
+  <div class="wrap narrow">
+    <h1 class="h2">Recebido, {{ nome }}. Obrigado.</h1>
+    <p>Seu pedido chegou direto ao Giani. O retorno é feito pelo WhatsApp informado.</p>
+    <p>Quer adiantar? Envie agora uma mensagem já com o resumo do seu pedido:</p>
+    <p><a class="btn" href="{{ wa }}" target="_blank" rel="noopener">Continuar no WhatsApp</a></p>
+    <p><a class="back" href="/">Voltar ao site</a></p>
+  </div>
+</main>
+{% include "_footer.html" %}
+{% endblock %}

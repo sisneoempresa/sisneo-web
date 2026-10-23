@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Leads | SISNEO{% endblock %}
+{% block robots %}noindex, nofollow{% endblock %}
+{% block body %}
+<main id="conteudo" class="page">
+  <div class="wrap">
+    <h1 class="h2">Leads recebidos ({{ rows|length }})</h1>
+    <p>Visitantes únicos: {{ visitas }}. <a href="/admin/leads?format=csv">Baixar CSV (Excel)</a></p>
+    <div class="table-scroll">
+      <table class="leads">
+        <thead><tr><th>Data (UTC)</th><th>Nome</th><th>WhatsApp</th><th>Necessidade</th><th>Porte</th><th>Urgência</th><th>Empresa</th><th>E-mail</th><th>Mensagem</th></tr></thead>
+        <tbody>
+        {% for r in rows %}
+          <tr>
+            <td>{{ r.data_hora }}</td><td>{{ r.nome }}</td>
+            <td><a href="https://wa.me/55{{ r.whatsapp }}" rel="noopener" target="_blank">{{ r.whatsapp }}</a></td>
+            <td>{{ r.necessidade }}</td><td>{{ r.porte }}</td><td>{{ r.urgencia }}</td>
+            <td>{{ r.empresa }}</td><td>{{ r.email }}</td><td>{{ r.mensagem }}</td>
+          </tr>
+        {% else %}
+          <tr><td colspan="9">Nenhum lead ainda.</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+{% endblock %}

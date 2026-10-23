@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Política de Privacidade (LGPD) | SISNEO{% endblock %}
+{% block description %}Como a SISNEO coleta, usa e protege dados pessoais, conforme a Lei Geral de Proteção de Dados (LGPD).{% endblock %}
+{% block canonical %}{{ SITE_URL }}/privacidade{% endblock %}
+{% block body %}
+{% include "_header.html" %}
+<main id="conteudo" class="page">
+  <div class="wrap narrow prose">
+    <h1 class="h2">Política de Privacidade</h1>
+    <p>Esta política explica como a SISNEO (CNPJ {{ E.cnpj }}), responsável {{ E.responsavel }}, trata dados pessoais coletados neste site, em conformidade com a Lei nº 13.709/2018 (LGPD).</p>
+
+    <h2>Quais dados coletamos</h2>
+    <p><strong>Formulário de contato:</strong> nome, WhatsApp, e-mail e empresa (opcionais, exceto nome e WhatsApp), além das informações sobre sua necessidade, porte, urgência e a mensagem que você escrever.</p>
+    <p><strong>Contador de visitas:</strong> usamos um cookie técnico de 24 horas (sisneo_uv) apenas para contar visitantes únicos. Ele não contém dados pessoais e não é usado para publicidade.</p>
+    <p><strong>Segurança:</strong> para evitar abusos, guardamos junto do contato um código irreversível derivado do endereço IP (hash), sem armazenar o IP em texto.</p>
+
+    <h2>Para que usamos</h2>
+    <p>Responder ao seu pedido de contato, elaborar diagnóstico ou proposta e manter a comunicação sobre o serviço solicitado. Não vendemos nem compartilhamos seus dados para publicidade de terceiros.</p>
+
+    <h2>Base legal</h2>
+    <p>Consentimento (art. 7º, I) dado ao marcar a caixa de concordância no formulário e procedimentos preliminares a contrato solicitados por você (art. 7º, V).</p>
+
+    <h2>Por quanto tempo guardamos</h2>
+    <p>Pelo tempo necessário para atender ao seu pedido e a eventual relação comercial, ou até você solicitar a exclusão.</p>
+
+    <h2>Onde ficam armazenados</h2>
+    <p>Em ambiente de nuvem Microsoft Azure, com acesso restrito e conexão criptografada (HTTPS).</p>
+
+    <h2>Seus direitos</h2>
+    <p>Você pode pedir confirmação do tratamento, acesso, correção, anonimização, portabilidade, eliminação dos dados e revogação do consentimento, conforme o art. 18 da LGPD. Basta escrever para <a href="mailto:{{ E.email }}">{{ E.email }}</a> ou chamar no WhatsApp {{ E.whatsapp_fmt }}.</p>
+
+    <h2>Contato do responsável</h2>
+    <p>{{ E.responsavel }}, {{ E.email }}, {{ E.whatsapp_fmt }}, {{ E.cidade }}, {{ E.uf }}.</p>
+    <p><a href="/">Voltar ao site</a></p>
+  </div>
+</main>
+{% include "_footer.html" %}
+{% endblock %}

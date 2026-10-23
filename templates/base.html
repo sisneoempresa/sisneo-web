@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{% block title %}SISNEO | Suporte em Redes, Servidores e Azure em Porto Alegre{% endblock %}</title>
+<meta name="description" content="{% block description %}Redes, servidores, firewall, migração para Azure e agentes de IA para empresas em Porto Alegre, no RS e em todo o Brasil. Atendimento direto com 20+ anos de experiência.{% endblock %}">
+<meta name="robots" content="{% block robots %}index, follow, max-image-preview:large{% endblock %}">
+<link rel="canonical" href="{% block canonical %}{{ SITE_URL }}/{% endblock %}">
+<meta name="theme-color" content="#171310">
+<link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% block head %}{% endblock %}
+</head>
+<body class="{% block bodyclass %}{% endblock %}">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+{% block body %}{% endblock %}
+<script src="{{ asset('js/main.js') }}" defer></script>
+</body>
+</html>

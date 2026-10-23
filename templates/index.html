@@ -1,0 +1,252 @@
+{% extends "base.html" %}
+{% block robots %}{% if noindex %}noindex, follow{% else %}index, follow, max-image-preview:large{% endif %}{% endblock %}
+{% block head %}
+<meta name="keywords" content="suporte de redes Porto Alegre, servidores Windows, firewall, migração Azure, TI para empresas RS, agentes de IA, Cisco, Active Directory">
+<meta name="author" content="Giani Maldaner">
+<meta name="geo.region" content="BR-RS">
+<meta name="geo.placename" content="Porto Alegre">
+<meta name="geo.position" content="-30.0346;-51.2177">
+<meta name="ICBM" content="-30.0346, -51.2177">
+<link rel="alternate" hreflang="pt-BR" href="{{ SITE_URL }}/">
+<link rel="alternate" hreflang="x-default" href="{{ SITE_URL }}/">
+<link rel="preload" as="image" href="{{ asset('img/giani.webp') }}" type="image/webp" fetchpriority="high">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="SISNEO">
+<meta property="og:title" content="SISNEO | Redes, servidores e Azure com quem resolve">
+<meta property="og:description" content="Suporte em redes, servidores, firewall, migração para Azure e agentes de IA. Porto Alegre, RS e todo o Brasil.">
+<meta property="og:url" content="{{ SITE_URL }}/">
+<meta property="og:image" content="{{ SITE_URL }}/static/img/og-sisneo.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Giani Maldaner, especialista em redes e servidores da SISNEO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SISNEO | Redes, servidores e Azure com quem resolve">
+<meta name="twitter:description" content="Suporte em redes, servidores, firewall, migração para Azure e agentes de IA. Porto Alegre, RS e todo o Brasil.">
+<meta name="twitter:image" content="{{ SITE_URL }}/static/img/og-sisneo.png">
+<script type="application/ld+json">{{ jsonld|safe }}</script>
+{% endblock %}
+
+{% block body %}
+{% include "_header.html" %}
+<main id="conteudo">
+
+<section class="hero">
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <p class="where">Porto Alegre, RS. Presencial no estado, remoto em todo o Brasil.</p>
+      <h1>Sua rede e seus servidores funcionando. Quem atende é quem resolve.</h1>
+      <p class="lead">Mais de 20 anos em redes, switches, roteadores e servidores, agora com Azure e inteligência artificial para a sua empresa trabalhar sem parar e atender clientes 24 horas.</p>
+      <div class="cta-row">
+        <a class="btn" href="{{ wa_link('Olá, Giani! Vim pelo site da SISNEO e gostaria de falar sobre TI para minha empresa.') }}" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <a class="btn btn-ghost" href="#contato">Pedir diagnóstico da rede</a>
+      </div>
+      <ul class="proof">
+        <li>MCSE, MCT, Citrix, CompTIA e Novell</li>
+        <li>Switches e roteadores Cisco</li>
+        <li>Windows Server, Azure e Microsoft 365</li>
+      </ul>
+    </div>
+    <figure class="hero-fig">
+      <img src="{{ asset('img/giani.webp') }}" width="400" height="400" alt="Giani Maldaner, responsável técnico da SISNEO" fetchpriority="high">
+      <div class="panel" aria-hidden="true">{% for n in range(12) %}<span class="port{% if n in (1, 2, 5, 6, 9) %} on{% endif %}"><i></i></span>{% endfor %}</div>
+      <figcaption>Giani Maldaner, atendimento direto</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="strip" aria-label="Credenciais">
+  <ul class="wrap strip-in">
+    <li><strong>20+ anos</strong> de projetos e suporte de TI em redes</li>
+    <li><strong>Certificado desde 1995</strong> por Microsoft, Novell, Citrix e CompTIA</li>
+    <li><strong>Empresas de médio e grande porte</strong> atendidas em migrações para nuvem</li>
+    <li><strong>Sem intermediários:</strong> você fala com quem executa</li>
+  </ul>
+</section>
+
+<section class="sec sec-paper" id="servicos">
+  <div class="wrap">
+    <h2 class="h2">O que a SISNEO resolve</h2>
+    <p class="sub">Da infraestrutura física à nuvem e à automação com IA, para quem precisa de TI confiável e de um responsável que atende o telefone.</p>
+    <ul class="svc">
+      {% for s in servicos %}
+      <li class="svc-row" id="{{ s.id }}">
+        <h3>{{ s.titulo }}</h3>
+        <div>
+          <p>{{ s.texto }}</p>
+          <ul class="tags">{% for t in s.tags %}<li>{{ t }}</li>{% endfor %}</ul>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap band-in">
+    <p class="band-text">Rede lenta, servidor caindo ou migração parada? Descreva em um minuto e receba retorno direto no WhatsApp.</p>
+    <a class="btn btn-dark" href="#contato">Pedir diagnóstico da rede</a>
+  </div>
+</section>
+
+<section class="sec sec-dark" id="sobre">
+  <div class="wrap about">
+    <div class="about-main">
+      <h2 class="h2">Quem atende a sua empresa</h2>
+      <p>Giani Maldaner trabalha com redes de computadores e servidores há mais de duas décadas. Foi gerente de TI, administrador de sistemas, instrutor e palestrante, e conhece a rotina de quem depende da rede para vender e atender.</p>
+      <p>Na experiência anterior na Sisnema, liderou a transformação de infraestruturas locais para a nuvem em clientes de médio e grande porte, conduziu equipes de suporte dentro de SLAs e apoiou o time comercial no levantamento de requisitos e na estratégia de migração.</p>
+      <p>Hoje, a SISNEO une essa base de infraestrutura com inteligência artificial aplicada: agentes que usam os manuais e processos da sua empresa para atender, qualificar contatos e encaminhar para a equipe.</p>
+    </div>
+    <ol class="trail">
+      <li><h3>Gestão de operações de TI</h3><p>Migração do ambiente local para a nuvem, helpdesk com SLA, KPIs e pré-venda técnica (experiência anterior na Sisnema).</p></li>
+      <li><h3>Instrutor e palestrante</h3><p>Cursos de Cisco, Microsoft, Citrix, Novell, CompTIA e Linux. Seminários sobre segurança e novas tecnologias.</p></li>
+      <li><h3>Projeto e suporte de redes</h3><p>Redes com servidores Microsoft e Novell, Active Directory, VoIP com Asterisk, firewalls e Citrix, em ambientes de clientes.</p></li>
+      <li><h3>IA aplicada ao negócio</h3><p>LLMs, RAG, agentes de IA, MCP e bancos vetoriais com Python, LangChain e LangGraph.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec sec-paper" id="competencias">
+  <div class="wrap">
+    <h2 class="h2">Competências e certificações</h2>
+    <div class="skills">
+      <div>
+        <h3>Redes</h3>
+        <p>TCP/IP, switches e roteadores Cisco, VoIP com Asterisk, firewall Linux e ISA Server, VPN e segmentação.</p>
+      </div>
+      <div>
+        <h3>Servidores</h3>
+        <p>Windows Server 2008 a 2019, Active Directory, Exchange, SharePoint, Hyper-V, System Center VMM, Windows Deployment Services e Citrix.</p>
+      </div>
+      <div>
+        <h3>Nuvem</h3>
+        <p>Microsoft Azure, Microsoft 365 e migração de ambientes locais para a nuvem.</p>
+      </div>
+      <div>
+        <h3>Gestão de TI</h3>
+        <p>ITIL, SLA, KPIs, equipes de suporte, relacionamento com fornecedores como Microsoft, Cisco e Dell.</p>
+      </div>
+      <div>
+        <h3>Inteligência artificial</h3>
+        <p>LLMs, RAG, agentes, Model Context Protocol, Chroma, Pinecone, LangChain, LangGraph e Google Gemini API.</p>
+      </div>
+    </div>
+    <h3 class="certs-h">Certificações</h3>
+    <ul class="certs">
+      <li><strong>Microsoft</strong>MCSE, MCT, MCP + Internet</li>
+      <li><strong>CompTIA</strong>Security+, Network+, CTT+</li>
+      <li><strong>Citrix</strong>CCA MetaFrame, XenApp e Password Manager</li>
+      <li><strong>Novell</strong>CNI, CNE, CNA, CLP (SUSE Linux)</li>
+      <li><strong>McAfee</strong>Security University, Defense</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec sec-dark" id="como-funciona">
+  <div class="wrap">
+    <h2 class="h2">Como funciona o atendimento</h2>
+    <ol class="steps">
+      <li><h3>Conversa</h3><p>Você descreve o problema ou o objetivo pelo WhatsApp ou pelo formulário.</p></li>
+      <li><h3>Diagnóstico</h3><p>Levantamento da rede, dos servidores e dos riscos, presencial no RS ou remoto.</p></li>
+      <li><h3>Proposta</h3><p>Escopo, etapas e prazos claros, com janelas de mudança que respeitam a sua operação.</p></li>
+      <li><h3>Execução e suporte</h3><p>Implantação, documentação e acompanhamento depois da entrega.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec sec-paper" id="faq">
+  <div class="wrap faq-wrap">
+    <h2 class="h2">Dúvidas frequentes</h2>
+    <div class="faq">
+      {% for q, a in faq %}
+      <details>
+        <summary>{{ q }}</summary>
+        <p>{{ a }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-dark" id="contato">
+  <div class="wrap contact">
+    <div class="contact-side">
+      <h2 class="h2">Fale com o especialista</h2>
+      <p>Sem intermediários. Conte o cenário da sua empresa e você recebe o retorno direto de quem vai executar.</p>
+      <ul class="contact-list">
+        <li><a href="{{ wa_link() }}" target="_blank" rel="noopener"><svg width="20" height="20" aria-hidden="true"><use href="#i-wa"/></svg>{{ E.whatsapp_fmt }}</a></li>
+        <li><a href="mailto:{{ E.email }}"><svg width="20" height="20" aria-hidden="true"><use href="#i-mail"/></svg>{{ E.email }}</a></li>
+        <li><span><svg width="20" height="20" aria-hidden="true"><use href="#i-pin"/></svg>{{ E.cidade }}, {{ E.uf }}. Remoto em todo o Brasil.</span></li>
+      </ul>
+    </div>
+
+    <form class="form" method="post" action="/contato" novalidate>
+      {% if errors %}
+      <div class="errors" id="form-errors" role="alert" tabindex="-1">
+        <p>Revise antes de enviar:</p>
+        <ul>{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul>
+      </div>
+      {% endif %}
+      <input type="hidden" name="t" value="{{ token }}">
+      <div class="hp" aria-hidden="true"><label>Não preencha <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+      <fieldset>
+        <legend>1. Seu cenário</legend>
+        <label for="necessidade">O que você precisa?</label>
+        <select id="necessidade" name="necessidade" required>
+          <option value="">Selecione</option>
+          {% for k, v in necessidades %}<option value="{{ k }}"{% if values.necessidade == k %} selected{% endif %}>{{ v }}</option>{% endfor %}
+        </select>
+        <div class="two">
+          <div>
+            <label for="porte">Tamanho da empresa</label>
+            <select id="porte" name="porte" required>
+              <option value="">Selecione</option>
+              {% for k, v in portes %}<option value="{{ k }}"{% if values.porte == k %} selected{% endif %}>{{ v }}</option>{% endfor %}
+            </select>
+          </div>
+          <div>
+            <label for="urgencia">Urgência</label>
+            <select id="urgencia" name="urgencia" required>
+              <option value="">Selecione</option>
+              {% for k, v in urgencias %}<option value="{{ k }}"{% if values.urgencia == k %} selected{% endif %}>{{ v }}</option>{% endfor %}
+            </select>
+          </div>
+        </div>
+        <label for="mensagem">Conte em poucas palavras (opcional)</label>
+        <textarea id="mensagem" name="mensagem" rows="3" maxlength="1000">{{ values.mensagem or '' }}</textarea>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Seus dados</legend>
+        <div class="two">
+          <div>
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" autocomplete="name" maxlength="100" required value="{{ values.nome or '' }}">
+          </div>
+          <div>
+            <label for="whatsapp">WhatsApp com DDD</label>
+            <input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="(51) 99999-9999" required value="{{ values.whatsapp or '' }}">
+          </div>
+        </div>
+        <div class="two">
+          <div>
+            <label for="empresa">Empresa (opcional)</label>
+            <input id="empresa" name="empresa" type="text" autocomplete="organization" maxlength="120" value="{{ values.empresa or '' }}">
+          </div>
+          <div>
+            <label for="email">E-mail (opcional)</label>
+            <input id="email" name="email" type="email" autocomplete="email" maxlength="150" value="{{ values.email or '' }}">
+          </div>
+        </div>
+      </fieldset>
+
+      <label class="check"><input type="checkbox" name="lgpd" value="1" required{% if values.lgpd %} checked{% endif %}> <span>Concordo que a SISNEO use esses dados para entrar em contato, conforme a <a href="/privacidade">Política de Privacidade</a>.</span></label>
+      <button class="btn btn-block" type="submit">Enviar e receber retorno</button>
+    </form>
+  </div>
+</section>
+
+</main>
+{% include "_footer.html" %}
+{% endblock %}
