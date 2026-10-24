@@ -1,0 +1,27 @@
+ESTRUTURA CORRETA - SISNEO
+==========================
+Este ZIP está com as pastas EXATAS como o Flask espera no Azure:
+
+/
+  app.py  (substituir o seu app.py)
+  /templates/
+    base.html
+    _header.html   <- seu header.html renomeado com _
+    _footer.html   <- seu footer.html renomeado com _
+    index.html
+    servico.html   <- NOVO, template genérico para /redes-cisco/, /migracao-azure/, etc
+
+COMO SUBIR NO AZURE APP SERVICE:
+1. No VS Code ou no Kudu (https://sisneo.scm.azurewebsites.net), vá em /home/site/wwwroot/
+2. Substitua app.py
+3. Dentro de templates/, substitua os 4 arquivos e adicione servico.html
+4. Não precisa criar pastas /redes-cisco/ - o app.py já cria a rota automaticamente
+
+O que muda:
+- Antes: só / e /privacidade no sitemap
+- Agora: /, /redes-cisco/, /suporte-servidores/, /firewall-lgpd/, /migracao-azure/, /agentes-ia/, /site-institucional/, /privacidade
+
+Teste após deploy:
+https://sisneo.com.br/redes-cisco/
+https://sisneo.com.br/migracao-azure/
+https://sisneo.com.br/sitemap.xml (deve listar 8 URLs)

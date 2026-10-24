@@ -2,7 +2,7 @@
   <div class="wrap foot-grid">
     <div>
       <p class="foot-brand">SISNEO</p>
-      <p class="foot-text">Redes, servidores, Azure e IA para empresas. Atendimento direto, sem intermediários.</p>
+      <p class="foot-text">Redes, servidores, Azure e IA para empresas em <strong>Porto Alegre, RS</strong>. Atendimento direto com Giani Maldaner, 20+ anos, sem intermediários. Presencial no RS e remoto no Brasil.</p>
       <ul class="seals" aria-label="Segurança e conformidade">
         <li><svg width="18" height="18" aria-hidden="true"><use href="#i-shield"/></svg>Hospedado no Microsoft Azure</li>
         <li><svg width="18" height="18" aria-hidden="true"><use href="#i-shield"/></svg>Conexão segura (HTTPS)</li>
@@ -10,12 +10,26 @@
       </ul>
     </div>
     <div>
-      <h2 class="foot-h">Contato</h2>
-      <address class="foot-addr">
-        <a href="{{ wa_link() }}" rel="noopener" target="_blank"><svg width="18" height="18" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp {{ E.whatsapp_fmt }}</a>
-        <a href="mailto:{{ E.email }}"><svg width="18" height="18" aria-hidden="true"><use href="#i-mail"/></svg>{{ E.email }}</a>
-        <span><svg width="18" height="18" aria-hidden="true"><use href="#i-pin"/></svg>{{ E.cidade }}, {{ E.uf }}. Presencial no RS, remoto no Brasil.</span>
+      <h2 class="foot-h">Contato - Suporte TI Porto Alegre</h2>
+      <address class="foot-addr" itemscope itemtype="https://schema.org/PostalAddress">
+        <a href="{{ wa_link() }}" rel="noopener" target="_blank" title="WhatsApp Suporte de TI Porto Alegre - SISNEO"><svg width="18" height="18" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp {{ E.whatsapp_fmt }}</a>
+        <a href="mailto:{{ E.email }}" title="E-mail SISNEO - Suporte de TI Porto Alegre"><svg width="18" height="18" aria-hidden="true"><use href="#i-mail"/></svg>{{ E.email }}</a>
+        <span itemprop="addressLocality"><svg width="18" height="18" aria-hidden="true"><use href="#i-pin"/></svg>{{ E.cidade }}, {{ E.uf }}. Presencial no RS, remoto no Brasil.</span>
+        <meta itemprop="addressRegion" content="RS">
+        <meta itemprop="addressCountry" content="BR">
       </address>
+    </div>
+    <div>
+      <h2 class="foot-h">Serviços em Porto Alegre</h2>
+      <nav aria-label="Serviços">
+        <ul style="list-style:none;padding:0;margin:0;display:grid;gap:.4rem">
+          <li><a href="/redes-cisco/" title="Redes Cisco e Wi-Fi corporativo em Porto Alegre">Redes Cisco Porto Alegre</a></li>
+          <li><a href="/migracao-azure/" title="Migração para Azure e Microsoft 365 em Porto Alegre">Migração Azure Porto Alegre</a></li>
+          <li><a href="/suporte-servidores/" title="Suporte de servidores Windows Server em Porto Alegre">Suporte Servidores Porto Alegre</a></li>
+          <li><a href="/firewall-lgpd/" title="Firewall e LGPD para empresas em Porto Alegre">Firewall e LGPD Porto Alegre</a></li>
+          <li><a href="/suporte-ti/" title="Empresa de TI e suporte de informática em Porto Alegre">Empresa de TI Porto Alegre</a></li>
+        </ul>
+      </nav>
     </div>
     <div>
       <h2 class="foot-h">Empresa</h2>
@@ -24,7 +38,7 @@
     </div>
   </div>
   <div class="wrap foot-base">
-    <span>© {{ year }} SISNEO. Todos os direitos reservados.</span>
+    <span>© {{ year }} SISNEO - Suporte de TI, Redes Cisco e Azure em Porto Alegre. Todos os direitos reservados.</span>
     {% if show_counter %}<span>Visitantes únicos: <strong>{{ counter }}</strong></span>{% endif %}
   </div>
 </footer>
@@ -34,7 +48,7 @@
     <p>Precisa de ajuda com rede ou servidor? Fale agora com o Giani.</p>
     <button type="button" class="wa-x" aria-label="Fechar aviso">×</button>
   </div>
-  <a class="wa-btn" href="{{ wa_link('Olá, Giani! Vim pelo site da SISNEO e gostaria de falar sobre TI para minha empresa.') }}" target="_blank" rel="noopener" aria-label="Falar no WhatsApp {{ E.whatsapp_fmt }}">
+  <a class="wa-btn" href="{{ wa_link('Olá, Giani! Vim pelo site da SISNEO e gostaria de falar sobre TI para minha empresa.') }}" target="_blank" rel="noopener" aria-label="Falar no WhatsApp com suporte de TI Porto Alegre - SISNEO {{ E.whatsapp_fmt }}" title="Suporte de TI Porto Alegre - WhatsApp SISNEO">
     <svg width="34" height="34" aria-hidden="true"><use href="#i-wa"/></svg>
   </a>
 </div>

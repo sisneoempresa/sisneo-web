@@ -4,7 +4,7 @@
 {% block description %}Empresa de TI em Porto Alegre com 20+ anos. Suporte em redes Cisco, servidores Windows Server, firewall, migração para Azure e Microsoft 365 e agentes de IA. Atendimento direto com Giani Maldaner, presencial no RS e remoto no Brasil.{% endblock %}
 {% block canonical %}<link rel="canonical" href="{{ SITE_URL }}/">{% endblock %}
 {% block head %}
-<meta name="keywords" content="suporte ti porto alegre, empresa de redes porto alegre, suporte servidores porto alegre, migracao azure porto alegre, firewall lgpd, cisco, active directory, microsoft 365">
+<meta name="keywords" content="suporte ti porto alegre, empresa de redes porto alegre, suporte servidores porto alegre, migracao azure porto alegre, firewall lgpd porto alegre, redes cisco porto alegre, active directory, microsoft 365, empresa de ti porto alegre, suporte informatica porto alegre">
 <meta name="author" content="Giani Maldaner">
 <meta name="geo.region" content="BR-RS">
 <meta name="geo.placename" content="Porto Alegre">
@@ -12,7 +12,9 @@
 <meta name="ICBM" content="-30.0346, -51.2177">
 <link rel="alternate" hreflang="pt-BR" href="{{ SITE_URL }}/">
 <link rel="alternate" hreflang="x-default" href="{{ SITE_URL }}/">
-<link rel="preload" as="image" href="{{ asset('img/giani.webp') }}" type="image/webp" fetchpriority="high">
+<link rel="preconnect" href="{{ SITE_URL }}">
+<link rel="dns-prefetch" href="{{ SITE_URL }}">
+<link rel="preload" as="image" href="{{ asset('img/giani.webp') }}" type="image/webp" fetchpriority="high" imagesrcset="{{ asset('img/giani.webp') }}" imagesizes="400px">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="SISNEO">
@@ -28,6 +30,20 @@
 <meta name="twitter:description" content="Suporte em redes, servidores, firewall, migração para Azure e agentes de IA. 20+ anos, atendimento direto.">
 <meta name="twitter:image" content="{{ SITE_URL }}/static/img/og-sisneo.png">
 <script type="application/ld+json">{{ jsonld|safe }}</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem","position": 1,"name": "Home","item": "{{ SITE_URL }}/"},
+    {"@type": "ListItem","position": 2,"name": "Suporte de TI Porto Alegre","item": "{{ SITE_URL }}/#servicos"},
+    {"@type": "ListItem","position": 3,"name": "Sobre Giani Maldaner","item": "{{ SITE_URL }}/#sobre"},
+    {"@type": "ListItem","position": 4,"name": "Contato","item": "{{ SITE_URL }}/#contato"}
+  ]
+}
+</script>
+
 {% endblock %}
 
 {% block body %}
@@ -38,10 +54,10 @@
   <div class="wrap hero-in">
     <div class="hero-copy">
       <p class="where">Porto Alegre, RS. Presencial no estado, remoto em todo o Brasil.</p>
-      <h1>Suporte de TI, Redes Cisco e Migração Azure em Porto Alegre. Quem atende é quem resolve.</h1>
+      <h1 itemprop="headline">Suporte de TI, Redes Cisco e Migração Azure em Porto Alegre. Quem atende é quem resolve.</h1>
       <p class="lead">Mais de 20 anos em redes, switches, roteadores e servidores, agora com Azure e inteligência artificial para a sua empresa trabalhar sem parar e atender clientes 24 horas. Atendimento direto com especialista certificado MCSE, MCT, Cisco, Citrix, CompTIA e Novell desde 1995.</p>
       <div class="cta-row">
-        <a class="btn" href="{{ wa_link('Olá, Giani! Vim pelo site da SISNEO e gostaria de falar sobre TI para minha empresa.') }}" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <a class="btn" href="{{ wa_link('Olá, Giani! Vim pelo site da SISNEO e gostaria de falar sobre TI para minha empresa.') }}" target="_blank" rel="noopener" aria-label="Falar no WhatsApp com suporte de TI Porto Alegre - SISNEO" title="Suporte de TI Porto Alegre - Falar no WhatsApp">Falar no WhatsApp</a>
         <a class="btn btn-ghost" href="#contato">Pedir diagnóstico da rede</a>
       </div>
       <ul class="proof">
@@ -51,7 +67,7 @@
       </ul>
     </div>
     <figure class="hero-fig">
-      <img src="{{ asset('img/giani.webp') }}" width="400" height="400" alt="Giani Maldaner, responsável técnico da SISNEO - especialista em redes Cisco e servidores em Porto Alegre" fetchpriority="high">
+      <img src="{{ asset('img/giani.webp') }}" width="400" height="400" height="400" alt="Giani Maldaner, responsável técnico da SISNEO - especialista em redes Cisco e servidores em Porto Alegre" title="Giani Maldaner - Suporte de TI, Redes Cisco e Azure em Porto Alegre | SISNEO" fetchpriority="high" decoding="async">
       <div class="panel" aria-hidden="true">{% for n in range(12) %}<span class="port{% if n in (1, 2, 5, 6, 9) %} on{% endif %}"><i></i></span>{% endfor %}</div>
       <figcaption>Giani Maldaner, atendimento direto</figcaption>
     </figure>
@@ -69,16 +85,16 @@
 
 <section class="sec sec-paper" id="servicos">
   <div class="wrap">
-    <h2 class="h2">O que a SISNEO resolve - Empresa de TI em Porto Alegre</h2>
+    <h2 class="h2" id="servicos-titulo">O que a SISNEO resolve - Empresa de TI em Porto Alegre</h2>
     <p class="sub">Da infraestrutura física à nuvem e à automação com IA, para quem precisa de TI confiável e de um responsável que atende o telefone. Clique para ver detalhes de cada serviço.</p>
     <ul class="svc">
       {% for s in servicos %}
       <li class="svc-row" id="{{ s.id }}">
-        <h3><a href="/{{ s.slug }}/" style="text-decoration:none">{{ s.titulo }}</a></h3>
+        <h3><a href="/{{ s.slug }}/" style="text-decoration:none" title="{{ s.titulo }} em Porto Alegre | SISNEO - Giani Maldaner">{{ s.titulo }}</a></h3>
         <div>
           <p>{{ s.texto }}</p>
           <ul class="tags">{% for t in s.tags %}<li>{{ t }}</li>{% endfor %}</ul>
-          <p style="margin-top:.8rem"><a href="/{{ s.slug }}/" style="color:var(--orink);font-weight:700">Ver detalhes de {{ s.titulo }} →</a></p>
+          <p style="margin-top:.8rem"><a href="/{{ s.slug }}/" style="color:var(--orink);font-weight:700" title="Saiba mais sobre {{ s.titulo }} em Porto Alegre" aria-label="Ver detalhes de {{ s.titulo }} em Porto Alegre">Ver detalhes de {{ s.titulo }} →</a></p>
         </div>
       </li>
       {% endfor %}

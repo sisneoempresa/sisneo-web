@@ -6,18 +6,29 @@
 </svg>
 <header class="top">
   <div class="wrap top-in">
-    <a class="brand" href="/" aria-label="SISNEO, página inicial">
+    <a class="brand" href="/" aria-label="SISNEO - Suporte de TI em Porto Alegre, página inicial" title="SISNEO - Suporte de TI, Redes Cisco e Migração Azure em Porto Alegre | 20+ Anos">
       <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path d="M7 11h18v13H7z" fill="none" stroke="#ff6b00" stroke-width="3"/><path d="M11 11V7h10v4" fill="none" stroke="#ff6b00" stroke-width="3"/><circle cx="16" cy="17.500" r="2.400" fill="#ffb000"/></svg>
       <span>SISNEO</span>
     </a>
     <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span><span></span></button>
     <nav id="menu" class="menu" aria-label="Principal">
-      <a href="/#servicos">Serviços</a>
-      <a href="/#sobre">Quem atende</a>
-      <a href="/#competencias">Competências</a>
-      <a href="/#como-funciona">Como funciona</a>
-      <a href="/#faq">Dúvidas</a>
-      <a class="btn btn-sm" href="/#contato">Pedir diagnóstico</a>
+      <a href="/#servicos" title="Serviços de TI, redes e servidores em Porto Alegre - SISNEO">Serviços</a>
+      <a href="/redes-cisco/" title="Redes Cisco e Wi-Fi corporativo em Porto Alegre | SISNEO">Redes Cisco</a>
+      <a href="/migracao-azure/" title="Migração para Azure e Microsoft 365 em Porto Alegre | SISNEO">Azure</a>
+      <a href="/#sobre" title="Quem atende - Giani Maldaner, 20+ anos de TI em Porto Alegre">Quem atende</a>
+      <a href="/#competencias" title="Competências e certificações MCSE, Cisco, Azure - SISNEO Porto Alegre">Competências</a>
+      <a href="/#como-funciona" title="Como funciona atendimento de TI em Porto Alegre e Brasil">Como funciona</a>
+      <a href="/#faq" title="Dúvidas sobre suporte de TI em Porto Alegre">Dúvidas</a>
+      <a class="btn btn-sm" href="/#contato" title="Pedir diagnóstico de rede em Porto Alegre - SISNEO">Pedir diagnóstico</a>
     </nav>
   </div>
 </header>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SiteNavigationElement",
+  "name": ["Serviços", "Redes Cisco Porto Alegre", "Migração Azure Porto Alegre", "Quem atende", "Competências", "Como funciona", "Dúvidas", "Contato"],
+  "url": ["{{ SITE_URL }}/#servicos", "{{ SITE_URL }}/redes-cisco/", "{{ SITE_URL }}/migracao-azure/", "{{ SITE_URL }}/#sobre", "{{ SITE_URL }}/#competencias", "{{ SITE_URL }}/#como-funciona", "{{ SITE_URL }}/#faq", "{{ SITE_URL }}/#contato"]
+}
+</script>

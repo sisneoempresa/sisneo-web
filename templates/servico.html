@@ -1,58 +1,105 @@
 {% extends "base.html" %}
-{% block title %}{{ servico.title_seo }}{% endblock %}
+{% block title %}{{ servico.titulo_seo }} | SISNEO - 20+ Anos{% endblock %}
 {% block description %}{{ servico.desc_seo }}{% endblock %}
 {% block canonical %}<link rel="canonical" href="{{ SITE_URL }}/{{ servico.slug }}/">{% endblock %}
 {% block head %}
-<meta name="geo.region" content="BR-RS">
-<meta name="geo.placename" content="Porto Alegre">
+<meta name="keywords" content="{{ servico.tags|join(', ') }}, {{ servico.titulo_seo|lower }}, suporte ti porto alegre, empresa de ti porto alegre">
 <meta property="og:type" content="website">
-<meta property="og:title" content="{{ servico.title_seo }}">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="SISNEO - Suporte de TI Porto Alegre">
+<meta property="og:title" content="{{ servico.titulo_seo }} | SISNEO">
 <meta property="og:description" content="{{ servico.desc_seo }}">
 <meta property="og:url" content="{{ SITE_URL }}/{{ servico.slug }}/">
 <meta property="og:image" content="{{ SITE_URL }}/static/img/og-sisneo.png">
-<script type="application/ld+json">{{ servico.jsonld|safe }}</script>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ servico.titulo_seo }} | SISNEO">
+<meta name="twitter:description" content="{{ servico.desc_seo }}">
+<script type="application/ld+json">{{ jsonld|safe }}</script>
 {% endblock %}
+
 {% block body %}
 {% include "_header.html" %}
 <main id="conteudo">
-<section class="sec sec-dark">
-  <div class="wrap">
-    <p class="where"><a href="/" style="color:var(--am);text-decoration:none">SISNEO</a> / {{ servico.titulo }}</p>
-    <h1 class="h2" style="max-width:22em">{{ servico.h1 }}</h1>
-    <p class="lead" style="color:var(--mut);max-width:38em;margin-top:.8rem">{{ servico.lead }}</p>
-    <div class="cta-row">
-      <a class="btn" href="{{ wa_link('Olá, Giani! Vim pela página de ' + servico.titulo + ' e gostaria de um diagnóstico.') }}" target="_blank" rel="noopener">Falar no WhatsApp sobre {{ servico.titulo }}</a>
-      <a class="btn btn-ghost" href="/#contato">Pedir diagnóstico</a>
+
+<section class="hero">
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <p class="where"><a href="/" title="SISNEO - Home">Home</a> / {{ servico.titulo_seo }}</p>
+      <h1>{{ servico.titulo_seo }}. Quem atende é quem resolve.</h1>
+      <p class="lead">{{ servico.texto }} Atendimento direto com Giani Maldaner, especialista certificado MCSE, MCT, Cisco e Azure desde 1995. Presencial em Porto Alegre, Guaíba, Canoas e remoto no Brasil.</p>
+      <div class="cta-row">
+        <a class="btn" href="{{ wa_link('Olá, Giani! Vim pela página de ' + servico.titulo + ' em Porto Alegre e gostaria de falar sobre TI.') }}" target="_blank" rel="noopener" title="{{ servico.titulo_seo }} - Falar no WhatsApp">Falar no WhatsApp</a>
+        <a class="btn btn-ghost" href="/#contato" title="Pedir diagnóstico">Pedir diagnóstico</a>
+      </div>
+      <ul class="proof">
+        <li>MCSE, MCT, Citrix, CompTIA e Novell - certificado desde 1995</li>
+        <li>{{ servico.tags[0] }}, {{ servico.tags[1] }} e {{ servico.tags[2] }}</li>
+        <li>Atendimento direto, sem intermediários, em Porto Alegre - RS</li>
+      </ul>
     </div>
+    <figure class="hero-fig">
+      <img src="{{ asset('img/giani.webp') }}" width="400" height="400" alt="{{ servico.titulo_seo }} - Giani Maldaner SISNEO Porto Alegre" loading="lazy" decoding="async">
+      <figcaption>Giani Maldaner - {{ servico.titulo }}</figcaption>
+    </figure>
   </div>
 </section>
+
 <section class="sec sec-paper">
   <div class="wrap">
-    <h2 class="h2">{{ servico.h2 }}</h2>
-    <div class="prose narrow">
-      {{ servico.conteudo|safe }}
-      <h2>Por que contratar a SISNEO para {{ servico.titulo }} em Porto Alegre?</h2>
-      <ul style="list-style:disc;padding-left:1.2rem;color:var(--ink2)">
-        <li>Atendimento direto com Giani Maldaner - 20+ anos, MCSE, MCT, Cisco, sem intermediários</li>
-        <li>Experiência em médias e grandes empresas - ex-Sisnema, migração com SLA</li>
-        <li>Presencial em Porto Alegre e região, remoto seguro em todo o Brasil</li>
-        <li>Documentação e janelas de manutenção que respeitam sua operação</li>
-      </ul>
-      <p style="margin-top:2rem"><a class="btn" href="/#contato">Pedir proposta de {{ servico.titulo }}</a></p>
+    <h2 class="h2">O que inclui - {{ servico.titulo }} em Porto Alegre</h2>
+    <p class="sub">{{ servico.desc_seo }}</p>
+    <ul class="svc">
+      <li class="svc-row">
+        <h3>{{ servico.titulo }}</h3>
+        <div>
+          <p>{{ servico.texto }}</p>
+          <ul class="tags">{% for t in servico.tags %}<li>{{ t }}</li>{% endfor %}</ul>
+          <p style="margin-top:.8rem">Atendemos empresas de 10 a 200 usuários em <strong>Porto Alegre, Zona Norte, Centro, Guaíba, Canoas e Região Metropolitana</strong>.</p>
+        </div>
+      </li>
+    </ul>
+    
+    <h3 style="margin-top:2rem">Serviços relacionados em Porto Alegre</h3>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:.8rem">
+      {% for s in servicos if s.slug != servico.slug %}
+      <a href="/{{ s.slug }}/" class="btn btn-ghost" style="font-size:13px" title="{{ s.titulo_seo }}">{{ s.titulo }}</a>
+      {% endfor %}
     </div>
   </div>
 </section>
-<section class="sec sec-dark">
+
+<section class="sec sec-dark" id="como-funciona">
   <div class="wrap">
-    <h2 class="h2">Como funciona</h2>
+    <h2 class="h2">Como funciona o atendimento de {{ servico.titulo|lower }} em Porto Alegre</h2>
     <ol class="steps">
-      <li><h3>Conversa</h3><p>Você descreve o cenário em 1 minuto via WhatsApp ou formulário.</p></li>
-      <li><h3>Diagnóstico</h3><p>Levantamento da rede/servidores/riscos presencial ou remoto.</p></li>
-      <li><h3>Proposta</h3><p>Escopo, etapas, prazos e janelas de mudança.</p></li>
-      <li><h3>Execução</h3><p>Implantação documentada e suporte pós-entrega.</p></li>
+      <li><h3>Conversa</h3><p>Você descreve o cenário pelo WhatsApp.</p></li>
+      <li><h3>Diagnóstico</h3><p>Levantamento presencial no RS ou remoto, com plano e janelas de mudança.</p></li>
+      <li><h3>Execução</h3><p>Implantação, documentação e acompanhamento.</p></li>
     </ol>
   </div>
 </section>
+
+<section class="sec sec-paper" id="faq">
+  <div class="wrap faq-wrap">
+    <h2 class="h2">Dúvidas sobre {{ servico.titulo|lower }} em Porto Alegre</h2>
+    <div class="faq">
+      {% for q, a in faq %}
+      <details>
+        <summary>{{ q }}</summary>
+        <p>{{ a }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap band-in">
+    <p class="band-text">{{ servico.titulo }} em Porto Alegre com atendimento direto? Fale agora no WhatsApp.</p>
+    <a class="btn btn-dark" href="{{ wa_link('Olá, Giani! Preciso de ' + servico.titulo + ' em Porto Alegre.') }}" target="_blank" rel="noopener" title="{{ servico.titulo_seo }} - WhatsApp">Falar no WhatsApp {{ E.whatsapp_fmt }}</a>
+  </div>
+</section>
+
 </main>
 {% include "_footer.html" %}
 {% endblock %}
