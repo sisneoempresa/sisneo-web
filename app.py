@@ -42,25 +42,84 @@ EMPRESA = {
 WA_BASE = "https://wa.me/" + EMPRESA["whatsapp_digits"]
 
 SERVICOS = [
-    {"id": "redes", "titulo": "Redes corporativas e Wi-Fi",
+    {"id": "redes", "slug": "redes-corporativas-wifi-cisco", "titulo": "Redes corporativas e Wi-Fi",
      "texto": "Projeto, configuração e sustentação de redes com switches e roteadores Cisco, VLANs, VPN e Wi-Fi com cobertura planejada. Rede estável, segmentada e documentada.",
      "tags": ["Switches", "Roteadores Cisco", "VLAN e VPN", "Wi-Fi", "TCP/IP"]},
-    {"id": "servidores", "titulo": "Servidores e virtualização",
+    {"id": "servidores", "slug": "servidores-virtualizacao-windows", "titulo": "Servidores e virtualização",
      "texto": "Windows Server, Active Directory, Exchange, SharePoint, Hyper-V e Citrix, além de Linux quando fizer sentido. Instalação, migração, backup e monitoramento.",
      "tags": ["Windows Server", "Active Directory", "Hyper-V", "Citrix", "Backup"]},
-    {"id": "seguranca", "titulo": "Firewall e segurança",
+    {"id": "seguranca", "slug": "firewall-seguranca-lgpd", "titulo": "Firewall e segurança",
      "texto": "Firewall, segmentação de rede, antivírus e antispam, controle de acessos e plano de continuidade para reduzir risco e proteger os dados da empresa.",
      "tags": ["Firewall", "Antispam", "Controle de acesso", "Continuidade"]},
-    {"id": "cloud", "titulo": "Migração para Azure e Microsoft 365",
+    {"id": "cloud", "slug": "migracao-azure-microsoft365", "titulo": "Migração para Azure e Microsoft 365",
      "texto": "Levantamento do ambiente, plano de migração e execução em janelas planejadas para reduzir a parada. Do servidor local para a nuvem Microsoft.",
      "tags": ["Microsoft Azure", "Microsoft 365", "Exchange Online", "Migração"]},
-    {"id": "ia", "titulo": "Agentes de IA para atendimento e vendas",
+    {"id": "ia", "slug": "agentes-ia-atendimento-vendas", "titulo": "Agentes de IA para atendimento e vendas",
      "texto": "Assistentes que respondem com base nos seus manuais e processos (RAG), qualificam contatos e encaminham a conversa para o WhatsApp da equipe.",
      "tags": ["LLMs", "RAG", "Agentes de IA", "WhatsApp"]},
-    {"id": "web", "titulo": "Site institucional e presença digital",
+    {"id": "web", "slug": "site-institucional-seo", "titulo": "Site institucional e presença digital",
      "texto": "Sites rápidos, seguros e preparados para aparecer no Google, com formulário que transforma visitas em pedidos de contato.",
      "tags": ["SEO local", "Python / Flask", "LGPD", "Formulário de contatos"]},
 ]
+
+
+
+SERVICE_PAGES = {
+    "redes-corporativas-wifi-cisco": {
+        "titulo": "Redes corporativas e Wi-Fi",
+        "title_seo": "Redes Corporativas e Wi-Fi Cisco em Porto Alegre | SISNEO - Projeto e Suporte",
+        "desc_seo": "Projeto e sustentação de redes com switches e roteadores Cisco, VLANs, VPN e Wi-Fi com cobertura planejada em Porto Alegre. Rede estável, segmentada e documentada. Atendimento direto.",
+        "h1": "Redes Corporativas e Wi-Fi com Switches e Roteadores Cisco em Porto Alegre",
+        "lead": "Projeto de rede estável, segmentada e documentada. De VLANs e VPN a Wi-Fi com site survey, com quem tem 20+ anos de Cisco e atende direto.",
+        "h2": "O que entregamos em redes e Wi-Fi",
+        "conteudo": "<p>Empresas perdem venda com Wi-Fi instável e rede sem segmentação. Projetamos e sustentamos redes com switches e roteadores Cisco, VLANs, VPN, QoS para VoIP Asterisk, firewall Linux e ISA Server.</p><p><strong>Inclui:</strong> levantamento, mapa de cobertura Wi-Fi, configuração de VLANs, VPN site-to-site, documentação e monitoramento.</p>"
+    },
+    "servidores-virtualizacao-windows": {
+        "titulo": "Servidores e virtualização",
+        "title_seo": "Servidores Windows Server e Virtualização em Porto Alegre | SISNEO",
+        "desc_seo": "Suporte e instalação de Windows Server, Active Directory, Exchange, SharePoint, Hyper-V e Citrix em Porto Alegre. Backup, monitoramento e virtualização. 20+ anos.",
+        "h1": "Servidores Windows Server, Active Directory e Virtualização em Porto Alegre",
+        "lead": "Instalação, migração, backup e monitoramento de servidores Microsoft e Linux. Com documentação e janelas de manutenção.",
+        "h2": "Servidores que não param sua operação",
+        "conteudo": "<p>Windows Server 2008 a 2019, AD, DNS, DHCP, Exchange, SharePoint, Hyper-V, System Center VMM, WDS e Citrix. Além de Linux quando fizer sentido.</p><p>Atuamos com ITIL, SLA e KPIs, com relacionamento direto com Microsoft, Cisco e Dell.</p>"
+    },
+    "firewall-seguranca-lgpd": {
+        "titulo": "Firewall e segurança",
+        "title_seo": "Firewall e Segurança de Rede LGPD em Porto Alegre | SISNEO",
+        "desc_seo": "Firewall, segmentação de rede, antivírus, antispam, controle de acesso e plano de continuidade para LGPD em Porto Alegre. Presencial no RS e remoto no Brasil.",
+        "h1": "Firewall e Segurança de Rede para LGPD em Porto Alegre",
+        "lead": "Reduza risco com segmentação, controle de acesso, antivírus, antispam e plano de continuidade alinhado à LGPD.",
+        "h2": "Proteção de dados e continuidade",
+        "conteudo": "<p>Firewall, segmentação, controle de acessos e plano de continuidade. Antivírus e antispam gerenciados.</p><p>Implementamos políticas que reduzem exposição e facilitam auditoria LGPD.</p>"
+    },
+    "migracao-azure-microsoft365": {
+        "titulo": "Migração para Azure e Microsoft 365",
+        "title_seo": "Migração para Azure e Microsoft 365 em Porto Alegre sem Parar | SISNEO",
+        "desc_seo": "Migração de servidores locais para Azure e Microsoft 365 em Porto Alegre. Levantamento, plano com janelas de manutenção e acompanhamento pós-migração. 20+ anos, ex-Sisnema.",
+        "h1": "Migração para Azure e Microsoft 365 em Porto Alegre sem parar sua operação",
+        "lead": "Do servidor local para a nuvem Microsoft com risco mínimo. Experiência em clientes de médio e grande porte, com SLA e pré-venda técnica.",
+        "h2": "Como fazemos a migração para Azure",
+        "conteudo": "<ol style='list-style:decimal;padding-left:1.2rem'><li>Levantamento completo: servidores, e-mail, arquivos, usuários, permissões</li><li>Plano com janelas de manutenção e rollback documentado</li><li>Migração em etapas: AD, Exchange Online, arquivos para SharePoint/OneDrive</li><li>Acompanhamento nos primeiros dias para estabilização</li></ol>"
+    },
+    "agentes-ia-atendimento-vendas": {
+        "titulo": "Agentes de IA para atendimento e vendas",
+        "title_seo": "Agentes de IA para Atendimento e Vendas com RAG | SISNEO Porto Alegre",
+        "desc_seo": "Agentes de IA que respondem com base nos seus manuais (RAG), qualificam leads e encaminham para WhatsApp. Python, LangChain, LangGraph. Porto Alegre e remoto Brasil.",
+        "h1": "Agentes de IA que Atendem com Base nos Seus Manuais (RAG) em Porto Alegre",
+        "lead": "LLMs, RAG, MCP, Chroma, Pinecone, LangChain, LangGraph e Gemini API. Atendimento 24h que qualifica e encaminha para sua equipe.",
+        "h2": "O que o agente de IA faz pela sua empresa",
+        "conteudo": "<p>Responde dúvidas usando seus próprios manuais e regras, separa contatos que realmente querem comprar e encaminha para o WhatsApp da equipe com contexto.</p><p>Construído a partir do material da sua empresa, não respostas genéricas.</p>"
+    },
+    "site-institucional-seo": {
+        "titulo": "Site institucional e presença digital",
+        "title_seo": "Site Institucional Rápido e Otimizado para Google | SISNEO Porto Alegre",
+        "desc_seo": "Criação de sites rápidos, seguros e preparados para aparecer no Google em Porto Alegre. Flask, SEO local, LGPD e formulário que gera leads. SISNEO.",
+        "h1": "Site Institucional Rápido, Seguro e Preparado para Aparecer no Google",
+        "lead": "Sites em Flask/Python otimizados para SEO local, com formulário que transforma visitas em pedidos de contato e painel de leads.",
+        "h2": "Site que gera contato, não só visita",
+        "conteudo": "<p>Site leve, com canonical único, sitemap, robots, schema LocalBusiness e FAQ, PageSpeed otimizado e hospedagem Azure.</p><p>Inclui formulário com proteção anti-spam, painel de leads e integração WhatsApp.</p>"
+    }
+}
 
 FAQ = [
     ("A SISNEO atende presencialmente em Porto Alegre?",
@@ -472,6 +531,38 @@ def obrigado():
     return render_template("obrigado.html", nome=d["n"], wa=wa_link(msg))
 
 
+
+@app.route("/<slug>/")
+def servico_page(slug):
+    slug = slug.strip("/").lower()
+    if slug not in SERVICE_PAGES:
+        abort(404)
+    data = SERVICE_PAGES[slug]
+    # JSON-LD específico do serviço
+    service_jsonld = json.dumps({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": data["titulo"],
+        "serviceType": data["titulo"],
+        "provider": {"@id": SITE_URL + "/#organization"},
+        "areaServed": {"@type": "City", "name": "Porto Alegre"},
+        "description": data["desc_seo"],
+        "url": f"{SITE_URL}/{slug}/"
+    }, ensure_ascii=False)
+    servico = {
+        "slug": slug,
+        "titulo": data["titulo"],
+        "title_seo": data["title_seo"],
+        "desc_seo": data["desc_seo"],
+        "h1": data["h1"],
+        "lead": data["lead"],
+        "h2": data["h2"],
+        "conteudo": data["conteudo"],
+        "jsonld": service_jsonld
+    }
+    return render_template("servico.html", servico=servico)
+
+
 @app.route("/privacidade")
 def privacidade():
     return render_template("privacidade.html")
@@ -492,7 +583,10 @@ def sitemap():
             return datetime.fromtimestamp(ts, timezone.utc).strftime("%Y-%m-%d")
         except OSError:
             return datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    urls = [("/", lm("index.html"), "1.0", "weekly"), ("/privacidade", lm("privacidade.html"), "0.3", "yearly")]
+    urls = [("/", lm("index.html"), "1.0", "weekly")]
+    for slug in SERVICE_PAGES.keys():
+        urls.append((f"/{slug}/", lm("servico.html"), "0.9", "weekly"))
+    urls.append(("/privacidade", lm("privacidade.html"), "0.3", "yearly"))
     xml = ['<?xml version="1.0" encoding="UTF-8"?>',
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for path, mod, prio, freq in urls:

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}{{ servico.title_seo }}{% endblock %}
+{% block description %}{{ servico.desc_seo }}{% endblock %}
+{% block canonical %}<link rel="canonical" href="{{ SITE_URL }}/{{ servico.slug }}/">{% endblock %}
+{% block head %}
+<meta name="geo.region" content="BR-RS">
+<meta name="geo.placename" content="Porto Alegre">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ servico.title_seo }}">
+<meta property="og:description" content="{{ servico.desc_seo }}">
+<meta property="og:url" content="{{ SITE_URL }}/{{ servico.slug }}/">
+<meta property="og:image" content="{{ SITE_URL }}/static/img/og-sisneo.png">
+<script type="application/ld+json">{{ servico.jsonld|safe }}</script>
+{% endblock %}
+{% block body %}
+{% include "_header.html" %}
+<main id="conteudo">
+<section class="sec sec-dark">
+  <div class="wrap">
+    <p class="where"><a href="/" style="color:var(--am);text-decoration:none">SISNEO</a> / {{ servico.titulo }}</p>
+    <h1 class="h2" style="max-width:22em">{{ servico.h1 }}</h1>
+    <p class="lead" style="color:var(--mut);max-width:38em;margin-top:.8rem">{{ servico.lead }}</p>
+    <div class="cta-row">
+      <a class="btn" href="{{ wa_link('Olá, Giani! Vim pela página de ' + servico.titulo + ' e gostaria de um diagnóstico.') }}" target="_blank" rel="noopener">Falar no WhatsApp sobre {{ servico.titulo }}</a>
+      <a class="btn btn-ghost" href="/#contato">Pedir diagnóstico</a>
+    </div>
+  </div>
+</section>
+<section class="sec sec-paper">
+  <div class="wrap">
+    <h2 class="h2">{{ servico.h2 }}</h2>
+    <div class="prose narrow">
+      {{ servico.conteudo|safe }}
+      <h2>Por que contratar a SISNEO para {{ servico.titulo }} em Porto Alegre?</h2>
+      <ul style="list-style:disc;padding-left:1.2rem;color:var(--ink2)">
+        <li>Atendimento direto com Giani Maldaner - 20+ anos, MCSE, MCT, Cisco, sem intermediários</li>
+        <li>Experiência em médias e grandes empresas - ex-Sisnema, migração com SLA</li>
+        <li>Presencial em Porto Alegre e região, remoto seguro em todo o Brasil</li>
+        <li>Documentação e janelas de manutenção que respeitam sua operação</li>
+      </ul>
+      <p style="margin-top:2rem"><a class="btn" href="/#contato">Pedir proposta de {{ servico.titulo }}</a></p>
+    </div>
+  </div>
+</section>
+<section class="sec sec-dark">
+  <div class="wrap">
+    <h2 class="h2">Como funciona</h2>
+    <ol class="steps">
+      <li><h3>Conversa</h3><p>Você descreve o cenário em 1 minuto via WhatsApp ou formulário.</p></li>
+      <li><h3>Diagnóstico</h3><p>Levantamento da rede/servidores/riscos presencial ou remoto.</p></li>
+      <li><h3>Proposta</h3><p>Escopo, etapas, prazos e janelas de mudança.</p></li>
+      <li><h3>Execução</h3><p>Implantação documentada e suporte pós-entrega.</p></li>
+    </ol>
+  </div>
+</section>
+</main>
+{% include "_footer.html" %}
+{% endblock %}

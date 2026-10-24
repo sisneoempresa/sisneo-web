@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 {% block robots %}{% if noindex %}noindex, follow{% else %}index, follow, max-image-preview:large{% endif %}{% endblock %}
+{% block title %}Suporte de TI, Redes Cisco e Migração Azure em Porto Alegre | SISNEO - 20+ Anos{% endblock %}
+{% block description %}Empresa de TI em Porto Alegre com 20+ anos. Suporte em redes Cisco, servidores Windows Server, firewall, migração para Azure e Microsoft 365 e agentes de IA. Atendimento direto com Giani Maldaner, presencial no RS e remoto no Brasil.{% endblock %}
+{% block canonical %}<link rel="canonical" href="{{ SITE_URL }}/">{% endblock %}
 {% block head %}
-<meta name="keywords" content="suporte de redes Porto Alegre, servidores Windows, firewall, migração Azure, TI para empresas RS, agentes de IA, Cisco, Active Directory">
+<meta name="keywords" content="suporte ti porto alegre, empresa de redes porto alegre, suporte servidores porto alegre, migracao azure porto alegre, firewall lgpd, cisco, active directory, microsoft 365">
 <meta name="author" content="Giani Maldaner">
 <meta name="geo.region" content="BR-RS">
 <meta name="geo.placename" content="Porto Alegre">
@@ -13,16 +16,16 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="SISNEO">
-<meta property="og:title" content="SISNEO | Redes, servidores e Azure com quem resolve">
-<meta property="og:description" content="Suporte em redes, servidores, firewall, migração para Azure e agentes de IA. Porto Alegre, RS e todo o Brasil.">
+<meta property="og:title" content="Suporte de TI, Redes Cisco e Migração Azure em Porto Alegre | SISNEO">
+<meta property="og:description" content="Suporte em redes, servidores, firewall, migração para Azure e agentes de IA. 20+ anos, atendimento direto com Giani Maldaner. Porto Alegre, RS e todo o Brasil.">
 <meta property="og:url" content="{{ SITE_URL }}/">
 <meta property="og:image" content="{{ SITE_URL }}/static/img/og-sisneo.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Giani Maldaner, especialista em redes e servidores da SISNEO">
+<meta property="og:image:alt" content="Giani Maldaner, especialista em redes e servidores da SISNEO em Porto Alegre">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SISNEO | Redes, servidores e Azure com quem resolve">
-<meta name="twitter:description" content="Suporte em redes, servidores, firewall, migração para Azure e agentes de IA. Porto Alegre, RS e todo o Brasil.">
+<meta name="twitter:title" content="Suporte de TI, Redes Cisco e Migração Azure em Porto Alegre | SISNEO">
+<meta name="twitter:description" content="Suporte em redes, servidores, firewall, migração para Azure e agentes de IA. 20+ anos, atendimento direto.">
 <meta name="twitter:image" content="{{ SITE_URL }}/static/img/og-sisneo.png">
 <script type="application/ld+json">{{ jsonld|safe }}</script>
 {% endblock %}
@@ -35,20 +38,20 @@
   <div class="wrap hero-in">
     <div class="hero-copy">
       <p class="where">Porto Alegre, RS. Presencial no estado, remoto em todo o Brasil.</p>
-      <h1>Sua rede e seus servidores funcionando. Quem atende é quem resolve.</h1>
-      <p class="lead">Mais de 20 anos em redes, switches, roteadores e servidores, agora com Azure e inteligência artificial para a sua empresa trabalhar sem parar e atender clientes 24 horas.</p>
+      <h1>Suporte de TI, Redes Cisco e Migração Azure em Porto Alegre. Quem atende é quem resolve.</h1>
+      <p class="lead">Mais de 20 anos em redes, switches, roteadores e servidores, agora com Azure e inteligência artificial para a sua empresa trabalhar sem parar e atender clientes 24 horas. Atendimento direto com especialista certificado MCSE, MCT, Cisco, Citrix, CompTIA e Novell desde 1995.</p>
       <div class="cta-row">
         <a class="btn" href="{{ wa_link('Olá, Giani! Vim pelo site da SISNEO e gostaria de falar sobre TI para minha empresa.') }}" target="_blank" rel="noopener">Falar no WhatsApp</a>
         <a class="btn btn-ghost" href="#contato">Pedir diagnóstico da rede</a>
       </div>
       <ul class="proof">
-        <li>MCSE, MCT, Citrix, CompTIA e Novell</li>
-        <li>Switches e roteadores Cisco</li>
-        <li>Windows Server, Azure e Microsoft 365</li>
+        <li>MCSE, MCT, Citrix, CompTIA e Novell - certificado desde 1995</li>
+        <li>Switches e roteadores Cisco, VLANs, VPN e Wi-Fi corporativo</li>
+        <li>Windows Server, Azure e Microsoft 365 - migração sem parar operação</li>
       </ul>
     </div>
     <figure class="hero-fig">
-      <img src="{{ asset('img/giani.webp') }}" width="400" height="400" alt="Giani Maldaner, responsável técnico da SISNEO" fetchpriority="high">
+      <img src="{{ asset('img/giani.webp') }}" width="400" height="400" alt="Giani Maldaner, responsável técnico da SISNEO - especialista em redes Cisco e servidores em Porto Alegre" fetchpriority="high">
       <div class="panel" aria-hidden="true">{% for n in range(12) %}<span class="port{% if n in (1, 2, 5, 6, 9) %} on{% endif %}"><i></i></span>{% endfor %}</div>
       <figcaption>Giani Maldaner, atendimento direto</figcaption>
     </figure>
@@ -66,15 +69,16 @@
 
 <section class="sec sec-paper" id="servicos">
   <div class="wrap">
-    <h2 class="h2">O que a SISNEO resolve</h2>
-    <p class="sub">Da infraestrutura física à nuvem e à automação com IA, para quem precisa de TI confiável e de um responsável que atende o telefone.</p>
+    <h2 class="h2">O que a SISNEO resolve - Empresa de TI em Porto Alegre</h2>
+    <p class="sub">Da infraestrutura física à nuvem e à automação com IA, para quem precisa de TI confiável e de um responsável que atende o telefone. Clique para ver detalhes de cada serviço.</p>
     <ul class="svc">
       {% for s in servicos %}
       <li class="svc-row" id="{{ s.id }}">
-        <h3>{{ s.titulo }}</h3>
+        <h3><a href="/{{ s.slug }}/" style="text-decoration:none">{{ s.titulo }}</a></h3>
         <div>
           <p>{{ s.texto }}</p>
           <ul class="tags">{% for t in s.tags %}<li>{{ t }}</li>{% endfor %}</ul>
+          <p style="margin-top:.8rem"><a href="/{{ s.slug }}/" style="color:var(--orink);font-weight:700">Ver detalhes de {{ s.titulo }} →</a></p>
         </div>
       </li>
       {% endfor %}
@@ -92,7 +96,7 @@
 <section class="sec sec-dark" id="sobre">
   <div class="wrap about">
     <div class="about-main">
-      <h2 class="h2">Quem atende a sua empresa</h2>
+      <h2 class="h2">Quem atende a sua empresa - 20+ anos de TI em Porto Alegre</h2>
       <p>Giani Maldaner trabalha com redes de computadores e servidores há mais de duas décadas. Foi gerente de TI, administrador de sistemas, instrutor e palestrante, e conhece a rotina de quem depende da rede para vender e atender.</p>
       <p>Na experiência anterior na Sisnema, liderou a transformação de infraestruturas locais para a nuvem em clientes de médio e grande porte, conduziu equipes de suporte dentro de SLAs e apoiou o time comercial no levantamento de requisitos e na estratégia de migração.</p>
       <p>Hoje, a SISNEO une essa base de infraestrutura com inteligência artificial aplicada: agentes que usam os manuais e processos da sua empresa para atender, qualificar contatos e encaminhar para a equipe.</p>
@@ -108,7 +112,7 @@
 
 <section class="sec sec-paper" id="competencias">
   <div class="wrap">
-    <h2 class="h2">Competências e certificações</h2>
+    <h2 class="h2">Competências e certificações - Especialista certificado desde 1995</h2>
     <div class="skills">
       <div>
         <h3>Redes</h3>
@@ -144,7 +148,7 @@
 
 <section class="sec sec-dark" id="como-funciona">
   <div class="wrap">
-    <h2 class="h2">Como funciona o atendimento</h2>
+    <h2 class="h2">Como funciona o atendimento de TI em Porto Alegre e todo Brasil</h2>
     <ol class="steps">
       <li><h3>Conversa</h3><p>Você descreve o problema ou o objetivo pelo WhatsApp ou pelo formulário.</p></li>
       <li><h3>Diagnóstico</h3><p>Levantamento da rede, dos servidores e dos riscos, presencial no RS ou remoto.</p></li>
@@ -156,7 +160,7 @@
 
 <section class="sec sec-paper" id="faq">
   <div class="wrap faq-wrap">
-    <h2 class="h2">Dúvidas frequentes</h2>
+    <h2 class="h2">Dúvidas frequentes sobre suporte de TI em Porto Alegre</h2>
     <div class="faq">
       {% for q, a in faq %}
       <details>
