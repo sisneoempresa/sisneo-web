@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{% block title %}SISNEO | Suporte em Redes, Servidores e Azure em Porto Alegre{% endblock %}</title>
-<meta name="description" content="{% block description %}Redes, servidores, firewall, migração para Azure e agentes de IA para empresas em Porto Alegre, no RS e em todo o Brasil. Atendimento direto com 20+ anos de experiência.{% endblock %}">
+<meta name="description" content="{% block description %}Suporte em redes, servidores, firewall, migração para Azure e agentes de IA para empresas em Porto Alegre, RS e todo o Brasil. Atendimento direto.{% endblock %}">
 <meta name="robots" content="{% block robots %}index, follow, max-image-preview:large{% endblock %}">
-<link rel="canonical" href="{% block canonical %}{{ SITE_URL }}/{% endblock %}">
+{% block canonical %}<link rel="canonical" href="{{ SITE_URL }}/">{% endblock %}
 <meta name="theme-color" content="#171310">
 <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">

@@ -10,6 +10,7 @@ import secrets
 import threading
 import time
 from datetime import datetime, timezone
+from urllib.parse import urlparse
 
 from flask import (Flask, Response, abort, make_response, redirect,
                    render_template, request, url_for)
@@ -27,6 +28,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # Dados da empresa
 # ----------------------------------------------------------------------------
 SITE_URL = os.environ.get("SITE_URL", "https://sisneo.com.br").rstrip("/")
+SITE_HOST = urlparse(SITE_URL).netloc.lower()
 EMPRESA = {
     "nome": "SISNEO",
     "cnpj": "62.486.265/0001-07",
@@ -574,10 +576,21 @@ def server_error(e):
 
 @app.before_request
 def canonical_host():
+    """Mantém um único endereço público para o site.
+
+    Redireciona (301) o www e o endereço padrão do Azure (*.azurewebsites.net)
+    para o domínio oficial. Assim o Google não enxerga conteúdo duplicado e
+    junta toda a relevância em sisneo.com.br.
+    """
+    if request.path == "/healthz":  # verificação de saúde do Azure não deve ser redirecionada
+        return None
     host = request.host.split(":")[0].lower()
-    if host == "www.sisneo.com.br":
+    if host == SITE_HOST:
+        return None
+    if host == "www." + SITE_HOST or host.endswith(".azurewebsites.net"):
         target = SITE_URL + request.full_path.rstrip("?")
-        return redirect(target, 301)
+        code = 301 if request.method in ("GET", "HEAD") else 308  # 308 preserva o POST do formulário
+        return redirect(target, code)
 
 
 CSP = ("default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; "
