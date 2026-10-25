@@ -53,3 +53,14 @@ COMO PUBLICAR (GitHub -> Azure)
 TESTE LOCAL (opcional)
   pip install -r requirements.txt
   python app.py        (abre em http://localhost:8000)
+
+ATUALIZAÇÃO (v4) - IDENTIDADE "SIS + NEO" E CORREÇÃO DE BOTÕES
+- Logo novo (SVG) no cabeçalho e rodapé: static/img/logo-sisneo-ti.svg (fundo escuro)
+  e static/img/logo-sisneo-ti-claro.svg (para fundo claro).
+- Imagem de compartilhamento (WhatsApp/LinkedIn/Facebook): static/img/og-sisneo.jpg (1200x630).
+  Depois de publicar, force a atualização do cache em
+  https://developers.facebook.com/tools/debug/ (cole https://sisneo.com.br/) e no LinkedIn Post Inspector.
+- Favicon novo (centelha) e apple-touch-icon.png.
+- Página /sobre/: nova seção "SIS + NEO: da história ao novo ciclo" com a arte (static/img/novo-ciclo-sisneo-ti.webp).
+- CORREÇÃO: botões "Ver todas as certificações", "Redes Cisco" e "Migração Azure" ficavam brancos
+  sobre fundo claro (só apareciam ao passar o mouse). Corrigido em static/css/style.css (.sec-paper .btn-ghost).

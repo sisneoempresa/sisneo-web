@@ -442,7 +442,7 @@ def json_ld_home():
             "alternateName": ["SISNEO", "sisneo.com.br"],
             "url": SITE_URL + "/",
             "logo": SITE_URL + "/static/favicon.svg",
-            "image": SITE_URL + "/static/img/og-sisneo.png",
+            "image": SITE_URL + "/static/img/og-sisneo.jpg",
             "taxID": EMPRESA["cnpj"],
             "email": EMPRESA["email"],
             "telephone": "+5551998365106",
@@ -458,7 +458,7 @@ def json_ld_home():
             "name": "SISNEO TI - Suporte em Redes, Servidores e Azure em Porto Alegre",
             "description": "Redes de computadores, servidores, firewall, migração para Azure e agentes de IA para empresas em Porto Alegre, no Rio Grande do Sul e em todo o Brasil.",
             "url": SITE_URL + "/",
-            "image": SITE_URL + "/static/img/og-sisneo.png",
+            "image": SITE_URL + "/static/img/og-sisneo.jpg",
             "telephone": "+5551998365106",
             "email": EMPRESA["email"],
             "taxID": EMPRESA["cnpj"],
@@ -517,7 +517,7 @@ def json_ld_service(servico):
             "areaServed": {"@type": "City", "name": "Porto Alegre"},
             "serviceType": servico["titulo"],
             "url": SITE_URL + "/" + servico["slug"] + "/",
-            "image": SITE_URL + "/static/img/og-sisneo.png"
+            "image": SITE_URL + "/static/img/og-sisneo.jpg"
         },
         {
             "@context": "https://schema.org",
