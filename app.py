@@ -1,4 +1,4 @@
-"""SISNEO - site institucional (Flask), otimizado para SEO local Porto Alegre e Azure App Service."""
+"""SISNEO TI - site institucional (Flask), otimizado para SEO local Porto Alegre e Azure App Service."""
 import csv
 import gzip
 import hashlib
@@ -30,7 +30,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 SITE_URL = os.environ.get("SITE_URL", "https://sisneo.com.br").rstrip("/")
 SITE_HOST = urlparse(SITE_URL).netloc.lower()
 EMPRESA = {
-    "nome": "SISNEO",
+    "nome": "SISNEO TI",
     "cnpj": "62.486.265/0001-07",
     "responsavel": "Giani Maldaner",
     "whatsapp_digits": "5551998365106",
@@ -50,7 +50,7 @@ SERVICOS = [
         "titulo": "Redes corporativas e Wi-Fi",
         "titulo_seo": "Redes Cisco e Wi-Fi Corporativo em Porto Alegre",
         "texto": "Projeto, configuração e sustentação de redes com switches e roteadores Cisco, VLANs, VPN e Wi-Fi com cobertura planejada. Rede estável, segmentada e documentada para empresas em Porto Alegre.",
-        "desc_seo": "Empresa de redes Cisco em Porto Alegre: switches, roteadores, VLANs, VPN e Wi-Fi corporativo. 20+ anos, atendimento direto com Giani Maldaner.",
+        "desc_seo": "Empresa de redes Cisco em Porto Alegre: switches, roteadores, VLANs, VPN e Wi-Fi corporativo. 35 anos, atendimento direto com Giani Maldaner.",
         "tags": ["Switches Cisco", "Roteadores Cisco", "VLAN e VPN", "Wi-Fi corporativo", "TCP/IP Porto Alegre"]
     },
     {
@@ -58,7 +58,7 @@ SERVICOS = [
         "titulo": "Servidores e virtualização",
         "texto": "Windows Server, Active Directory, Exchange, SharePoint, Hyper-V e Citrix. Instalação, migração, backup com teste de restore e monitoramento preventivo.",
         "titulo_seo": "Suporte de Servidores Windows Server em Porto Alegre",
-        "desc_seo": "Suporte de servidores Windows Server em Porto Alegre: Active Directory, Hyper-V, backup e virtualização. 20+ anos, MCSE, presencial no RS e remoto no Brasil.",
+        "desc_seo": "Suporte de servidores Windows Server em Porto Alegre: Active Directory, Hyper-V, backup e virtualização. 35 anos, MCSE, presencial no RS e remoto no Brasil.",
         "tags": ["Windows Server", "Active Directory", "Hyper-V", "Citrix", "Backup Porto Alegre"]
     },
     {
@@ -66,7 +66,7 @@ SERVICOS = [
         "titulo": "Firewall e segurança",
         "texto": "Firewall Fortigate, Cisco e Linux, segmentação de rede, antivírus, controle de acessos e plano de continuidade para LGPD. Backup local + nuvem com teste.",
         "titulo_seo": "Firewall e LGPD para Empresas em Porto Alegre",
-        "desc_seo": "Firewall e adequação LGPD em Porto Alegre: firewall configurado, VPN, backup testado e políticas de segurança. 20+ anos, atendimento direto.",
+        "desc_seo": "Firewall e adequação LGPD em Porto Alegre: firewall configurado, VPN, backup testado e políticas de segurança. 35 anos, atendimento direto.",
         "tags": ["Firewall", "LGPD Porto Alegre", "Antivírus", "Backup", "VPN"]
     },
     {
@@ -95,6 +95,74 @@ SERVICOS = [
     },
 ]
 
+# ----------------------------------------------------------------------------
+# Histórico profissional (E-E-A-T). EDITE AQUI: tudo que aparece em /sobre/,
+# /certificacoes/, na home e no schema Person vem destes dados.
+# ----------------------------------------------------------------------------
+ANOS_EXPERIENCIA = 35
+INICIO_CARREIRA = 1990
+
+# Perfis públicos reais (LinkedIn, Google Perfil da Empresa, etc.). Entram no
+# schema como sameAs. Deixe vazio até ter as URLs reais.
+SAME_AS = [
+    # "https://www.linkedin.com/in/SEU-PERFIL",
+]
+
+TIMELINE = [
+    {"periodo": "1990-1995", "titulo": "Novell NetWare e as primeiras redes",
+     "resumo": "Início da carreira em redes com Novell NetWare. Certificações Novell CNE e CNA.",
+     "texto": "Primeiros projetos e suporte de redes de empresas com Novell NetWare, que era a base das redes corporativas da época. Certificações Novell CNE e CNA."},
+    {"periodo": "1995", "titulo": "Primeiras certificações Microsoft",
+     "resumo": "MCSE e MCT: base para projetar redes Windows e dar treinamentos oficiais.",
+     "texto": "Certificado Microsoft desde 1995: MCSE (Microsoft Certified Systems Engineer) e MCT (Microsoft Certified Trainer), a base para projetar redes com servidores Windows e ministrar treinamentos oficiais."},
+    {"periodo": "1995-2020", "titulo": "Sisnema Soluções, Porto Alegre",
+     "resumo": "Gerente de TI e instrutor Cisco e Microsoft. Migração de ambientes locais para a nuvem.",
+     "texto": "Gerente de TI e instrutor de cursos Cisco e Microsoft na Sisnema Soluções. Projetos de redes e servidores para clientes, equipes de suporte dentro de SLAs e migração de ambientes locais para a nuvem em clientes de médio e grande porte."},
+    {"periodo": "2020-hoje", "titulo": "SISNEO TI: atendimento direto",
+     "resumo": "Suporte direto, migração para Azure e agentes de IA para empresas.",
+     "texto": "Atendimento direto a empresas: redes, servidores, migração para Azure e Microsoft 365 e agentes de IA aplicados a atendimento e vendas, com os manuais e processos de cada cliente."},
+]
+
+# Fotos da página /sobre/. "arquivo" é o caminho em static/img/ SEM extensão;
+# o site procura .webp, .jpg, .jpeg e .png. Só aparece na página quem tiver arquivo.
+FOTOS = [
+    {"arquivo": "historia/rack-1998", "ano": "1998",
+     "alt": "Giani Maldaner Porto Alegre 1998 rede Novell - rack de servidores",
+     "legenda": "Rack de rede e servidores, 1998"},
+    {"arquivo": "historia/cracha-sisnema", "ano": "",
+     "alt": "Giani Maldaner crachá Sisnema Soluções Porto Alegre",
+     "legenda": "Crachá da Sisnema Soluções"},
+    {"arquivo": "historia/instrutor", "ano": "",
+     "alt": "Giani Maldaner instrutor de redes Cisco e Microsoft em Porto Alegre",
+     "legenda": "Em sala de treinamento como instrutor"},
+]
+
+# Certificações. "periodo" só deve ser preenchido com data confirmada.
+# "imagens": nomes SEM extensão em static/img/certificados/. Só aparecem se existirem.
+CERTIFICACOES = [
+    {"emissor": "Microsoft", "periodo": "desde 1995",
+     "itens": ["MCSE - Microsoft Certified Systems Engineer", "MCT - Microsoft Certified Trainer", "MCP + Internet"],
+     "imagens": [{"arquivo": "certificados/mcse-1995", "alt": "Certificado MCSE Microsoft 1995 Giani Maldaner", "legenda": "MCSE Microsoft, 1995"}]},
+    {"emissor": "Novell", "periodo": "primeira metade dos anos 1990 (CNE e CNA)",
+     "itens": ["CNE - Certified Novell Engineer", "CNA - Certified Novell Administrator", "CNI - Certified Novell Instructor", "CLP - Certified Linux Professional (SUSE Linux)"],
+     "imagens": [{"arquivo": "certificados/novell-cne", "alt": "Certificado Novell CNE Giani Maldaner Porto Alegre", "legenda": "Novell CNE"}]},
+    {"emissor": "Citrix", "periodo": "",
+     "itens": ["CCA MetaFrame", "XenApp", "Password Manager"],
+     "imagens": [{"arquivo": "certificados/citrix-cca", "alt": "Certificado Citrix CCA Giani Maldaner", "legenda": "Citrix CCA"}]},
+    {"emissor": "CompTIA", "periodo": "",
+     "itens": ["Security+", "Network+", "CTT+"],
+     "imagens": [{"arquivo": "certificados/comptia", "alt": "Certificado CompTIA Giani Maldaner", "legenda": "CompTIA"}]},
+    {"emissor": "McAfee", "periodo": "",
+     "itens": ["Security University", "Defense"],
+     "imagens": []},
+]
+
+# Casos reais com ano. Fica VAZIO de propósito: só publique o que realmente
+# aconteceu e o que o cliente autorizou. Formato:
+#   {"ano": "2018", "titulo": "Migração de 80 caixas Exchange para Microsoft 365",
+#    "cliente": "Empresa de serviços, Porto Alegre", "texto": "O que foi feito e o resultado."}
+CASOS = []
+
 # Mapa slug -> serviço para rota dinâmica
 SERVICOS_MAP = {s["slug"]: s for s in SERVICOS}
 
@@ -111,15 +179,19 @@ SLUG_ALIASES = {
     "redes-corporativas": "redes-cisco",
 }
 
+# Páginas fixas (não são serviços) que também aceitam a URL sem barra final
+PAGINAS_FIXAS = {"sobre", "certificacoes"}
+PAGINAS_ALIASES = {"quem-somos": "sobre", "quem-atende": "sobre", "giani-maldaner": "sobre", "certificados": "certificacoes"}
+
 FAQ = [
-    ("A SISNEO atende presencialmente em Porto Alegre?",
+    ("A SISNEO TI atende presencialmente em Porto Alegre?",
      "Sim. O atendimento presencial é em Porto Alegre e região, no Rio Grande do Sul, incluindo Zona Norte, Centro, Guaíba, Canoas e região metropolitana. Para o restante do Brasil, o trabalho é feito remotamente com acesso seguro."),
     ("Vocês atendem empresas de fora do Rio Grande do Sul?",
      "Sim. Diagnóstico, configuração de servidores, firewall, migração para Azure e suporte podem ser feitos por acesso remoto seguro, em todo o Brasil."),
     ("Como funciona a migração para o Azure?",
      "Começa com o levantamento do que existe hoje (servidores, e-mail, arquivos, usuários). Depois vem o plano com janelas de mudança, a migração em etapas e o acompanhamento nos primeiros dias, para reduzir o tempo de parada."),
     ("Quem faz o atendimento?",
-     "O atendimento é direto com Giani Maldaner, profissional de redes e servidores com mais de 20 anos de experiência, certificado MCSE, MCT, Cisco, Citrix, CompTIA e Novell desde 1995. Sem intermediários."),
+     "O atendimento é direto com Giani Maldaner, profissional de redes e servidores em Porto Alegre desde 1990, certificado MCSE, MCT, Citrix, CompTIA e Novell, com certificação Microsoft desde 1995. Foi gerente de TI e instrutor Cisco e Microsoft na Sisnema Soluções antes de atender pela SISNEO TI. Sem intermediários."),
     ("O que a IA pode fazer pela minha empresa?",
      "Um agente de IA pode responder dúvidas de clientes usando os seus próprios manuais e regras (RAG), separar contatos que realmente querem comprar e encaminhar para o WhatsApp da equipe. A conversa é construída a partir do material da sua empresa."),
     ("Meus dados enviados no formulário estão protegidos?",
@@ -283,6 +355,79 @@ def wa_link(msg=None):
     from urllib.parse import quote
     return f"{WA_BASE}?text={quote(msg)}"
 
+IMG_EXTS = (".webp", ".jpg", ".jpeg", ".png")
+
+def resolve_img(base):
+    """Retorna o caminho relativo a /static/ do primeiro arquivo existente, ou None."""
+    for ext in IMG_EXTS:
+        rel = base + ext
+        if os.path.isfile(os.path.join(BASE_DIR, "static", "img", rel)):
+            return "img/" + rel
+    return None
+
+def person_node():
+    org_id = SITE_URL + "/#organization"
+    person_id = SITE_URL + "/#giani"
+    creds = []
+    for c in CERTIFICACOES:
+        for item in c["itens"]:
+            creds.append({
+                "@type": "EducationalOccupationalCredential",
+                "name": f"{c['emissor']} {item}",
+                "credentialCategory": "certification",
+                "recognizedBy": {"@type": "Organization", "name": c["emissor"]},
+            })
+    node = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": person_id,
+        "name": "Giani Maldaner",
+        "url": SITE_URL + "/sobre/",
+        "mainEntityOfPage": SITE_URL + "/sobre/",
+        "jobTitle": f"Especialista em redes, servidores e infraestrutura de TI - {ANOS_EXPERIENCIA} anos de experiência",
+        "description": (f"Profissional de redes e servidores em Porto Alegre desde {INICIO_CARREIRA}. "
+                        "Certificado Microsoft desde 1995 (MCSE, MCT), com certificações Novell, Citrix e CompTIA. "
+                        "Foi gerente de TI e instrutor Cisco e Microsoft na Sisnema Soluções e hoje atende pela SISNEO TI."),
+        "image": SITE_URL + "/static/img/giani.webp",
+        "email": EMPRESA["email"],
+        "workLocation": {"@type": "Place", "address": {"@type": "PostalAddress", "addressLocality": "Porto Alegre", "addressRegion": "RS", "addressCountry": "BR"}},
+        "worksFor": [
+            {"@type": "Organization", "@id": org_id, "name": "SISNEO TI", "url": SITE_URL + "/"},
+            {"@type": "OrganizationRole", "roleName": "Gerente de TI e instrutor Cisco e Microsoft",
+             "startDate": "1995", "endDate": "2020",
+             "worksFor": {"@type": "Organization", "name": "Sisnema Soluções",
+                          "address": {"@type": "PostalAddress", "addressLocality": "Porto Alegre", "addressRegion": "RS", "addressCountry": "BR"}}},
+        ],
+        "knowsAbout": ["Redes Cisco", "Novell NetWare", "Windows Server", "Active Directory", "Azure", "Microsoft 365",
+                       "Firewall", "LGPD", "Inteligência Artificial", "RAG", "Wi-Fi corporativo"],
+        "hasCredential": creds,
+    }
+    if SAME_AS:
+        node["sameAs"] = SAME_AS
+    return node
+
+def person_ld():
+    return json.dumps(person_node(), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+
+def json_ld_sobre():
+    data = [
+        {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL + "/"},
+            {"@type": "ListItem", "position": 2, "name": "Sobre Giani Maldaner", "item": SITE_URL + "/sobre/"}]},
+        {"@context": "https://schema.org", "@type": "ProfilePage", "@id": SITE_URL + "/sobre/#profile",
+         "url": SITE_URL + "/sobre/", "inLanguage": "pt-BR",
+         "name": f"Giani Maldaner - Redes e Servidores em Porto Alegre desde {INICIO_CARREIRA}",
+         "mainEntity": {"@id": SITE_URL + "/#giani"}, "about": {"@id": SITE_URL + "/#giani"}},
+    ]
+    return json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+
+def json_ld_certificacoes():
+    data = [{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL + "/"},
+        {"@type": "ListItem", "position": 2, "name": "Sobre Giani Maldaner", "item": SITE_URL + "/sobre/"},
+        {"@type": "ListItem", "position": 3, "name": "Certificações", "item": SITE_URL + "/certificacoes/"}]}]
+    return json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+
 def json_ld_home():
     org_id = SITE_URL + "/#organization"
     person_id = SITE_URL + "/#giani"
@@ -293,7 +438,8 @@ def json_ld_home():
             "@context": "https://schema.org",
             "@type": "Organization",
             "@id": org_id,
-            "name": "SISNEO",
+            "name": "SISNEO TI",
+            "alternateName": ["SISNEO", "sisneo.com.br"],
             "url": SITE_URL + "/",
             "logo": SITE_URL + "/static/favicon.svg",
             "image": SITE_URL + "/static/img/og-sisneo.png",
@@ -301,6 +447,7 @@ def json_ld_home():
             "email": EMPRESA["email"],
             "telephone": "+5551998365106",
             "founder": {"@id": person_id},
+            "employee": {"@id": person_id},
             "address": address,
             "contactPoint": [{"@type": "ContactPoint", "contactType": "sales", "telephone": "+5551998365106", "email": EMPRESA["email"], "areaServed": "BR", "availableLanguage": ["pt-BR"]}],
         },
@@ -308,7 +455,7 @@ def json_ld_home():
             "@context": "https://schema.org",
             "@type": ["LocalBusiness", "ProfessionalService"],
             "@id": SITE_URL + "/#localbusiness",
-            "name": "SISNEO - Suporte em Redes, Servidores e Azure em Porto Alegre",
+            "name": "SISNEO TI - Suporte em Redes, Servidores e Azure em Porto Alegre",
             "description": "Redes de computadores, servidores, firewall, migração para Azure e agentes de IA para empresas em Porto Alegre, no Rio Grande do Sul e em todo o Brasil.",
             "url": SITE_URL + "/",
             "image": SITE_URL + "/static/img/og-sisneo.png",
@@ -327,7 +474,7 @@ def json_ld_home():
             ],
             "parentOrganization": {"@id": org_id},
             "hasOfferCatalog": {
-                "@type": "OfferCatalog", "name": "Serviços SISNEO Porto Alegre",
+                "@type": "OfferCatalog", "name": "Serviços SISNEO TI Porto Alegre",
                 "itemListElement": [
                     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": s["titulo_seo"], "url": SITE_URL + "/" + s["slug"] + "/", "description": s["desc_seo"]}} for s in SERVICOS
                 ],
@@ -335,31 +482,12 @@ def json_ld_home():
         },
         {
             "@context": "https://schema.org",
-            "@type": "Person",
-            "@id": person_id,
-            "name": "Giani Maldaner",
-            "jobTitle": "Especialista em redes, servidores e infraestrutura de TI - 20+ anos",
-            "image": SITE_URL + "/static/img/giani.webp",
-            "worksFor": {"@id": org_id},
-            "email": EMPRESA["email"],
-            "knowsAbout": ["Redes Cisco", "Servidores Windows", "Azure", "Active Directory", "Firewall LGPD", "Inteligência Artificial", "RAG", "Wi-Fi corporativo Porto Alegre"],
-            "hasCredential": [
-                {"@type": "EducationalOccupationalCredential", "name": "MCSE - Microsoft Certified Systems Engineer"},
-                {"@type": "EducationalOccupationalCredential", "name": "MCT - Microsoft Certified Trainer"},
-                {"@type": "EducationalOccupationalCredential", "name": "CompTIA Security+ e Network+"},
-                {"@type": "EducationalOccupationalCredential", "name": "Citrix CCA"},
-                {"@type": "EducationalOccupationalCredential", "name": "Novell CNE e CNI"},
-            ],
-        },
-        {
-            "@context": "https://schema.org",
             "@type": "WebSite",
             "@id": SITE_URL + "/#website",
             "url": SITE_URL + "/",
-            "name": "SISNEO - Suporte de TI Porto Alegre",
+            "name": "SISNEO TI - Suporte de TI Porto Alegre",
             "inLanguage": "pt-BR",
             "publisher": {"@id": org_id},
-            "potentialAction": {"@type": "SearchAction", "target": SITE_URL + "/?q={search_term_string}", "query-input": "required name=search_term_string"}
         },
         {
             "@context": "https://schema.org",
@@ -368,7 +496,7 @@ def json_ld_home():
         },
     ]
     out = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
-    return out.replace("</", "<\/")
+    return out.replace("</", "<\\/")
 
 def json_ld_service(servico):
     data = [
@@ -397,11 +525,13 @@ def json_ld_service(servico):
             "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ[:3]],
         }
     ]
-    return json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\/")
+    return json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 
 @app.context_processor
 def inject_globals():
-    return {"E": EMPRESA, "SITE_URL": SITE_URL, "asset": asset, "wa_link": wa_link, "year": datetime.now().year, "SERVICOS": SERVICOS}
+    return {"E": EMPRESA, "SITE_URL": SITE_URL, "asset": asset, "wa_link": wa_link, "year": datetime.now().year,
+            "SERVICOS": SERVICOS, "TIMELINE": TIMELINE, "ANOS": ANOS_EXPERIENCIA, "INICIO": INICIO_CARREIRA,
+            "person_ld": person_ld()}
 
 # ----------------------------------------------------------------------------
 # Rotas
@@ -429,12 +559,36 @@ def render_home(errors=None, values=None, status=200, noindex=False):
 def index():
     return render_home()
 
+@app.route("/sobre/")
+def sobre():
+    fotos = []
+    for f in FOTOS:
+        src = resolve_img(f["arquivo"])
+        if src:
+            fotos.append(dict(f, src=src))
+    return render_template("sobre.html", fotos=fotos, casos=CASOS, certs=CERTIFICACOES,
+                           jsonld=json_ld_sobre(), noindex=False)
+
+@app.route("/certificacoes/")
+def certificacoes():
+    certs = []
+    for c in CERTIFICACOES:
+        imgs = []
+        for im in c["imagens"]:
+            src = resolve_img(im["arquivo"])
+            if src:
+                imgs.append(dict(im, src=src))
+        certs.append(dict(c, imgs=imgs))
+    return render_template("certificacoes.html", certs=certs, jsonld=json_ld_certificacoes(), noindex=False)
+
 # --- NOVAS ROTAS SEO: páginas dedicadas para cada serviço (essencial para rankear) ---
 @app.route("/<slug>/")
 def servico_page(slug):
     # Normaliza slug
     slug = slug.strip("/").lower()
     # Alias
+    if slug in PAGINAS_ALIASES:
+        return redirect(f"/{PAGINAS_ALIASES[slug]}/", code=301)
     if slug in SLUG_ALIASES:
         return redirect(f"/{SLUG_ALIASES[slug]}/", code=301)
     # Verifica se é serviço válido
@@ -476,7 +630,9 @@ def servico_page(slug):
 # Compatibilidade com URLs antigas sem trailing slash
 @app.route("/<slug>")
 def servico_page_no_slash(slug):
-    if slug in SERVICOS_MAP or slug in SLUG_ALIASES:
+    if slug in PAGINAS_ALIASES:
+        return redirect(f"/{PAGINAS_ALIASES[slug]}/", code=301)
+    if slug in SERVICOS_MAP or slug in SLUG_ALIASES or slug in PAGINAS_FIXAS:
         return redirect(f"/{slug.strip('/')}/", code=301)
     abort(404)
 
@@ -572,6 +728,8 @@ def sitemap():
     # URLs principais + todas as páginas de serviço - ESSENCIAL para SEO
     urls = [
         ("/", lm("index.html"), "1.0", "weekly"),
+        ("/sobre/", lm("sobre.html"), "0.8", "monthly"),
+        ("/certificacoes/", lm("certificacoes.html"), "0.7", "monthly"),
         ("/privacidade", lm("privacidade.html"), "0.3", "yearly"),
     ]
     # Adiciona páginas de serviço com prioridade alta
@@ -599,7 +757,7 @@ def _check_admin():
     ok = (auth and auth.username is not None and auth.password is not None
           and secrets.compare_digest(auth.username, user) and secrets.compare_digest(auth.password, pwd))
     if not ok:
-        resp = Response("Acesso restrito.", 401, {"WWW-Authenticate": 'Basic realm="SISNEO"'})
+        resp = Response("Acesso restrito.", 401, {"WWW-Authenticate": 'Basic realm="SISNEO TI"'})
         abort(resp)
 
 def _read_leads():

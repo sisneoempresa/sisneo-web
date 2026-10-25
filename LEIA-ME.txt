@@ -1,27 +1,55 @@
-ESTRUTURA CORRETA - SISNEO
-==========================
-Este ZIP está com as pastas EXATAS como o Flask espera no Azure:
+SISNEO TI - SITE (versão E-E-A-T / história de 35 anos)
+=====================================================
 
-/
-  app.py  (substituir o seu app.py)
-  /templates/
-    base.html
-    _header.html   <- seu header.html renomeado com _
-    _footer.html   <- seu footer.html renomeado com _
-    index.html
-    servico.html   <- NOVO, template genérico para /redes-cisco/, /migracao-azure/, etc
+O QUE MUDOU NESTA VERSÃO
+- NOVA página /sobre/  : linha do tempo 1990 -> hoje, arquivo de fotos, schema ProfilePage + Person.
+- NOVA página /certificacoes/ : certificações por fabricante, com imagens dos certificados.
+- Schema Person (Giani Maldaner) em TODAS as páginas (via base.html), sem duplicar na home.
+- Home: seção "Quem atende" virou linha do tempo, com links para /sobre/ e /certificacoes/.
+- Páginas de serviço: link "Quem executa" para /sobre/.
+- sitemap.xml agora lista 10 URLs (inclui /sobre/ e /certificacoes/).
+- "20+ anos" virou "35 anos" em todo o site.
+- Correções técnicas: estilos inline removidos (o CSP do site os bloqueava), WebSite JSON-LD
+  duplicado removido, SearchAction falso removido, atributo height duplicado, header.html/footer.html
+  duplicados removidos, link interno do rodapé que passava por redirect.
 
-COMO SUBIR NO AZURE APP SERVICE:
-1. No VS Code ou no Kudu (https://sisneo.scm.azurewebsites.net), vá em /home/site/wwwroot/
-2. Substitua app.py
-3. Dentro de templates/, substitua os 4 arquivos e adicione servico.html
-4. Não precisa criar pastas /redes-cisco/ - o app.py já cria a rota automaticamente
+ONDE EDITAR (tudo em app.py, bloco "Histórico profissional (E-E-A-T)")
+- TIMELINE       : períodos e textos da trajetória (CONFIRME as datas antes de publicar).
+- FOTOS          : fotos da página /sobre/ (alt já escrito).
+- CERTIFICACOES  : certificações, períodos e imagens.
+- CASOS          : projetos reais com ano. Está VAZIO de propósito: só preencha com o que aconteceu de fato.
+- SAME_AS        : URLs reais de LinkedIn / Perfil da Empresa no Google (entram no schema).
 
-O que muda:
-- Antes: só / e /privacidade no sitemap
-- Agora: /, /redes-cisco/, /suporte-servidores/, /firewall-lgpd/, /migracao-azure/, /agentes-ia/, /site-institucional/, /privacidade
+COMO ADICIONAR AS FOTOS E CERTIFICADOS (sem mexer em código)
+Copie os arquivos (.webp ou .jpg, até ~200 KB cada, ideal 1200 px de largura) para:
+  static/img/historia/rack-1998.webp
+  static/img/historia/cracha-sisnema.webp
+  static/img/historia/instrutor.webp
+  static/img/certificados/mcse-1995.webp
+  static/img/certificados/novell-cne.webp
+  static/img/certificados/citrix-cca.webp
+  static/img/certificados/comptia.webp
+Cada foto só aparece no site se o arquivo existir (nunca gera imagem quebrada).
+Para mais fotos, acrescente uma linha em FOTOS ou CERTIFICACOES no app.py.
+ATENÇÃO: antes de publicar certificados, cubra número de registro/ID e dados pessoais.
 
-Teste após deploy:
-https://sisneo.com.br/redes-cisco/
-https://sisneo.com.br/migracao-azure/
-https://sisneo.com.br/sitemap.xml (deve listar 8 URLs)
+COMO PUBLICAR (GitHub -> Azure)
+1. Descompacte este ZIP (a pasta .git vem junto, com o histórico).
+2. No terminal, dentro da pasta sisneo-web:
+     git status
+     git add -A
+     git commit -m "E-E-A-T: paginas /sobre e /certificacoes, schema Person, correcoes SEO"
+     git push origin main
+3. O GitHub Actions (main_sisneoweb.yml) faz o deploy no Azure App Service sozinho.
+   Acompanhe em GitHub > Actions.
+4. Testes depois do deploy:
+     https://sisneo.com.br/sobre/
+     https://sisneo.com.br/certificacoes/
+     https://sisneo.com.br/sitemap.xml   (deve listar 10 URLs)
+5. Teste o schema em: https://search.google.com/test/rich-results (cole a URL /sobre/)
+6. Search Console: "Inspeção de URL" em /sobre/ e /certificacoes/ > "Solicitar indexação",
+   e reenvie o sitemap.xml.
+
+TESTE LOCAL (opcional)
+  pip install -r requirements.txt
+  python app.py        (abre em http://localhost:8000)

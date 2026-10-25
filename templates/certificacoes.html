@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Certificações de Giani Maldaner: MCSE, MCT, Novell, Citrix, CompTIA | SISNEO TI{% endblock %}
+{% block description %}Certificações de Giani Maldaner, de redes e servidores em Porto Alegre: Microsoft MCSE e MCT (desde 1995), Novell CNE e CNA, Citrix CCA, CompTIA Security+ e Network+.{% endblock %}
+{% block canonical %}<link rel="canonical" href="{{ SITE_URL }}/certificacoes/">{% endblock %}
+{% block head %}
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="SISNEO TI">
+<meta property="og:title" content="Certificações de Giani Maldaner: MCSE, MCT, Novell, Citrix, CompTIA">
+<meta property="og:description" content="Certificado Microsoft desde 1995, com certificações Novell, Citrix e CompTIA. Atendimento direto em Porto Alegre.">
+<meta property="og:url" content="{{ SITE_URL }}/certificacoes/">
+<meta property="og:image" content="{{ SITE_URL }}/static/img/og-sisneo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Certificações de Giani Maldaner | SISNEO TI">
+<meta name="twitter:description" content="Microsoft MCSE e MCT desde 1995, Novell, Citrix e CompTIA.">
+<script type="application/ld+json">{{ jsonld|safe }}</script>
+{% endblock %}
+
+{% block body %}
+{% include "_header.html" %}
+<main id="conteudo">
+
+<section class="hero hero-compact">
+  <div class="wrap">
+    <p class="where"><a href="/" title="SISNEO TI - Home">Home</a> / <a href="/sobre/" title="Sobre Giani Maldaner">Sobre</a> / Certificações</p>
+    <h1>Certificações de Giani Maldaner</h1>
+    <p class="lead">Certificado Microsoft desde 1995, com certificações Novell, Citrix, CompTIA e McAfee acumuladas ao longo de {{ ANOS }} anos de redes e servidores em Porto Alegre. A trajetória completa está em <a href="/sobre/" title="Trajetória de Giani Maldaner">Sobre</a>.</p>
+  </div>
+</section>
+
+<section class="sec sec-paper">
+  <div class="wrap">
+    <h2 class="h2">Certificações por fabricante</h2>
+    <div class="cert-list">
+      {% for c in certs %}
+      <article class="cert-card">
+        <h3>{{ c.emissor }}{% if c.periodo %} <span class="cert-period">{{ c.periodo }}</span>{% endif %}</h3>
+        <ul class="cert-items">
+          {% for i in c.itens %}<li>{{ i }}</li>{% endfor %}
+        </ul>
+        {% if c.imgs %}
+        <div class="gallery gallery-sm">
+          {% for im in c.imgs %}
+          <figure class="fig">
+            <img src="{{ asset(im.src) }}" alt="{{ im.alt }}" loading="lazy" decoding="async">
+            <figcaption>{{ im.legenda }}</figcaption>
+          </figure>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap band-in">
+    <p class="band-text">Precisa de rede, servidor ou migração para Azure com quem é certificado e atende direto?</p>
+    <a class="btn btn-dark" href="{{ wa_link('Olá, Giani! Vi suas certificações no site da SISNEO TI e gostaria de falar sobre TI.') }}" target="_blank" rel="noopener" title="Falar com Giani Maldaner no WhatsApp">Falar no WhatsApp {{ E.whatsapp_fmt }}</a>
+  </div>
+</section>
+
+</main>
+{% include "_footer.html" %}
+{% endblock %}

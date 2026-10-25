@@ -1,0 +1,4 @@
+Coloque aqui as imagens dos certificados (use exatamente estes nomes, .webp ou .jpg):
+  mcse-1995, novell-cne, citrix-cca, comptia
+Cubra número de registro/ID e dados pessoais antes de publicar.
+Ajuste legendas e alt em app.py > CERTIFICACOES.

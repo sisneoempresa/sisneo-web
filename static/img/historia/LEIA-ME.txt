@@ -1,0 +1,5 @@
+Coloque aqui as fotos da carreira (use exatamente estes nomes, .webp ou .jpg):
+  rack-1998        -> rack de rede/servidores em 1998
+  cracha-sisnema   -> crachá da Sisnema Soluções
+  instrutor        -> foto como instrutor (opcional)
+Ajuste legendas e alt em app.py > FOTOS.

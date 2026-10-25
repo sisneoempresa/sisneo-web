@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% block title %}Giani Maldaner - Redes e Servidores em Porto Alegre desde {{ INICIO }} | SISNEO TI{% endblock %}
+{% block description %}Giani Maldaner trabalha com redes e servidores em Porto Alegre desde {{ INICIO }}: Novell NetWare, certificado Microsoft desde 1995, 25 anos na Sisnema Soluções como gerente de TI e instrutor Cisco e Microsoft. Hoje atende pela SISNEO TI.{% endblock %}
+{% block canonical %}<link rel="canonical" href="{{ SITE_URL }}/sobre/">{% endblock %}
+{% block head %}
+<meta property="og:type" content="profile">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="SISNEO TI">
+<meta property="og:title" content="Giani Maldaner - Redes e Servidores em Porto Alegre desde {{ INICIO }}">
+<meta property="og:description" content="{{ ANOS }} anos de TI em Porto Alegre: Novell, Microsoft, Cisco, Azure e IA. Atendimento direto pela SISNEO TI.">
+<meta property="og:url" content="{{ SITE_URL }}/sobre/">
+<meta property="og:image" content="{{ SITE_URL }}/static/img/og-sisneo.png">
+<meta property="og:image:alt" content="Giani Maldaner, especialista em redes e servidores em Porto Alegre">
+<meta property="profile:first_name" content="Giani">
+<meta property="profile:last_name" content="Maldaner">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Giani Maldaner - Redes e Servidores em Porto Alegre desde {{ INICIO }}">
+<meta name="twitter:description" content="{{ ANOS }} anos de TI em Porto Alegre. Atendimento direto pela SISNEO TI.">
+<script type="application/ld+json">{{ jsonld|safe }}</script>
+{% endblock %}
+
+{% block body %}
+{% include "_header.html" %}
+<main id="conteudo">
+
+<section class="hero">
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <p class="where"><a href="/" title="SISNEO TI - Home">Home</a> / Sobre</p>
+      <h1>Giani Maldaner - Redes e Servidores em Porto Alegre desde {{ INICIO }}</h1>
+      <p class="lead">O domínio da SISNEO TI é novo. A experiência de quem atende, não: são {{ ANOS }} anos de redes e servidores em Porto Alegre, de Novell NetWare à nuvem e à inteligência artificial. Esta página mostra a trajetória, o que dá para comprovar e como falar comigo.</p>
+      <div class="cta-row">
+        <a class="btn" href="{{ wa_link('Olá, Giani! Vi sua página Sobre no site da SISNEO TI e gostaria de falar sobre TI.') }}" target="_blank" rel="noopener" title="Falar com Giani Maldaner no WhatsApp">Falar no WhatsApp</a>
+        <a class="btn btn-ghost" href="/certificacoes/" title="Certificações MCSE, MCT, Novell, Citrix e CompTIA">Ver certificações</a>
+      </div>
+    </div>
+    <figure class="hero-fig">
+      <img src="{{ asset('img/giani.webp') }}" width="400" height="400" alt="Giani Maldaner, especialista em redes e servidores em Porto Alegre desde {{ INICIO }}" fetchpriority="high" decoding="async">
+      <figcaption>Giani Maldaner, responsável técnico da SISNEO TI</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="strip" aria-label="Resumo da experiência">
+  <ul class="wrap strip-in">
+    <li><strong>Desde {{ INICIO }}</strong> redes e servidores em Porto Alegre</li>
+    <li><strong>Certificado Microsoft desde 1995</strong> MCSE e MCT</li>
+    <li><strong>25 anos na Sisnema Soluções</strong> gerente de TI e instrutor</li>
+    <li><strong>Sem intermediários:</strong> você fala com quem executa</li>
+  </ul>
+</section>
+
+<section class="sec sec-paper" id="trajetoria">
+  <div class="wrap">
+    <h2 class="h2">Trajetória: {{ ANOS }} anos de redes e servidores em Porto Alegre</h2>
+    <p class="sub">Da época em que a rede de uma empresa era um servidor Novell até Azure, Microsoft 365 e agentes de IA.</p>
+    <ol class="timeline">
+      {% for t in TIMELINE %}
+      <li class="tl">
+        <p class="tl-year">{{ t.periodo }}</p>
+        <h3>{{ t.titulo }}</h3>
+        <p>{{ t.texto }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+{% if fotos %}
+<section class="sec sec-dark" id="arquivo">
+  <div class="wrap">
+    <h2 class="h2">Arquivo: fotos e registros da carreira</h2>
+    <p class="sub sub-dark">Registros de projetos, treinamentos e do trabalho na Sisnema Soluções, em Porto Alegre.</p>
+    <div class="gallery">
+      {% for f in fotos %}
+      <figure class="fig">
+        <img src="{{ asset(f.src) }}" alt="{{ f.alt }}" loading="lazy" decoding="async">
+        <figcaption>{% if f.ano %}<strong>{{ f.ano }}</strong> · {% endif %}{{ f.legenda }}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if casos %}
+<section class="sec sec-paper" id="casos">
+  <div class="wrap">
+    <h2 class="h2">Projetos realizados</h2>
+    <p class="sub">Trabalhos reais, com ano e contexto, em empresas de Porto Alegre e região.</p>
+    <ul class="cases">
+      {% for c in casos %}
+      <li class="case">
+        <p class="tl-year">{{ c.ano }}</p>
+        <h3>{{ c.titulo }}</h3>
+        {% if c.cliente %}<p class="case-client">{{ c.cliente }}</p>{% endif %}
+        <p>{{ c.texto }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+
+<section class="sec {% if casos %}sec-dark{% else %}sec-paper{% endif %}" id="especialidades">
+  <div class="wrap">
+    <h2 class="h2">No que sou especialista</h2>
+    <div class="skills">
+      <div><h3>Redes</h3><p>TCP/IP, switches e roteadores Cisco, VLANs, VPN, Wi-Fi corporativo, firewall Linux e VoIP com Asterisk.</p></div>
+      <div><h3>Servidores</h3><p>Novell NetWare, Windows Server, Active Directory, Exchange, SharePoint, Hyper-V e Citrix.</p></div>
+      <div><h3>Nuvem</h3><p>Microsoft Azure, Microsoft 365 e migração de ambientes locais para a nuvem.</p></div>
+      <div><h3>Gestão de TI</h3><p>ITIL, SLA, KPIs, equipes de suporte e relacionamento com fornecedores como Microsoft, Cisco e Dell.</p></div>
+      <div><h3>Inteligência artificial</h3><p>LLMs, RAG, agentes, Model Context Protocol e bancos vetoriais com Python, LangChain e LangGraph.</p></div>
+      <div><h3>Ensino</h3><p>Instrutor de cursos Cisco, Microsoft, Citrix, Novell, CompTIA e Linux; palestrante em seminários de segurança.</p></div>
+    </div>
+    <ul class="cta-row">
+      <li><a class="btn btn-ghost" href="/certificacoes/" title="Certificações de Giani Maldaner">Ver todas as certificações</a></li>
+      <li><a class="btn btn-ghost" href="/redes-cisco/" title="Redes Cisco e Wi-Fi corporativo em Porto Alegre">Redes Cisco</a></li>
+      <li><a class="btn btn-ghost" href="/migracao-azure/" title="Migração para Azure e Microsoft 365 em Porto Alegre">Migração Azure</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec sec-dark" id="transparencia">
+  <div class="wrap narrow">
+    <h2 class="h2">Quem está por trás da SISNEO TI</h2>
+    <p class="prose-p">Empresa: SISNEO TI, CNPJ {{ E.cnpj }}, {{ E.cidade }} - {{ E.uf }}. Responsável técnico: {{ E.responsavel }}. Contato direto por <a href="{{ wa_link() }}" target="_blank" rel="noopener">WhatsApp {{ E.whatsapp_fmt }}</a> ou <a href="mailto:{{ E.email }}">{{ E.email }}</a>. Tratamento de dados conforme a <a href="/privacidade">Política de Privacidade (LGPD)</a>.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap band-in">
+    <p class="band-text">Quer conversar direto com quem tem {{ ANOS }} anos de rede e servidor?</p>
+    <a class="btn btn-dark" href="{{ wa_link('Olá, Giani! Vim pela página Sobre e gostaria de falar sobre TI para minha empresa.') }}" target="_blank" rel="noopener" title="Falar com Giani Maldaner no WhatsApp">Falar no WhatsApp {{ E.whatsapp_fmt }}</a>
+  </div>
+</section>
+
+</main>
+{% include "_footer.html" %}
+{% endblock %}

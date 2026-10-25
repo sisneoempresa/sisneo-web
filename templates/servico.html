@@ -1,18 +1,18 @@
 {% extends "base.html" %}
-{% block title %}{{ servico.titulo_seo }} | SISNEO - 20+ Anos{% endblock %}
+{% block title %}{{ servico.titulo_seo }} | SISNEO TI - 35 Anos{% endblock %}
 {% block description %}{{ servico.desc_seo }}{% endblock %}
 {% block canonical %}<link rel="canonical" href="{{ SITE_URL }}/{{ servico.slug }}/">{% endblock %}
 {% block head %}
 <meta name="keywords" content="{{ servico.tags|join(', ') }}, {{ servico.titulo_seo|lower }}, suporte ti porto alegre, empresa de ti porto alegre">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:site_name" content="SISNEO - Suporte de TI Porto Alegre">
-<meta property="og:title" content="{{ servico.titulo_seo }} | SISNEO">
+<meta property="og:site_name" content="SISNEO TI - Suporte de TI Porto Alegre">
+<meta property="og:title" content="{{ servico.titulo_seo }} | SISNEO TI">
 <meta property="og:description" content="{{ servico.desc_seo }}">
 <meta property="og:url" content="{{ SITE_URL }}/{{ servico.slug }}/">
 <meta property="og:image" content="{{ SITE_URL }}/static/img/og-sisneo.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ servico.titulo_seo }} | SISNEO">
+<meta name="twitter:title" content="{{ servico.titulo_seo }} | SISNEO TI">
 <meta name="twitter:description" content="{{ servico.desc_seo }}">
 <script type="application/ld+json">{{ jsonld|safe }}</script>
 {% endblock %}
@@ -24,7 +24,7 @@
 <section class="hero">
   <div class="wrap hero-in">
     <div class="hero-copy">
-      <p class="where"><a href="/" title="SISNEO - Home">Home</a> / {{ servico.titulo_seo }}</p>
+      <p class="where"><a href="/" title="SISNEO TI - Home">Home</a> / {{ servico.titulo_seo }}</p>
       <h1>{{ servico.titulo_seo }}. Quem atende é quem resolve.</h1>
       <p class="lead">{{ servico.texto }} Atendimento direto com Giani Maldaner, especialista certificado MCSE, MCT, Cisco e Azure desde 1995. Presencial em Porto Alegre, Guaíba, Canoas e remoto no Brasil.</p>
       <div class="cta-row">
@@ -38,7 +38,7 @@
       </ul>
     </div>
     <figure class="hero-fig">
-      <img src="{{ asset('img/giani.webp') }}" width="400" height="400" alt="{{ servico.titulo_seo }} - Giani Maldaner SISNEO Porto Alegre" loading="lazy" decoding="async">
+      <img src="{{ asset('img/giani.webp') }}" width="400" height="400" alt="{{ servico.titulo_seo }} - Giani Maldaner SISNEO TI Porto Alegre" loading="lazy" decoding="async">
       <figcaption>Giani Maldaner - {{ servico.titulo }}</figcaption>
     </figure>
   </div>
@@ -54,15 +54,17 @@
         <div>
           <p>{{ servico.texto }}</p>
           <ul class="tags">{% for t in servico.tags %}<li>{{ t }}</li>{% endfor %}</ul>
-          <p style="margin-top:.8rem">Atendemos empresas de 10 a 200 usuários em <strong>Porto Alegre, Zona Norte, Centro, Guaíba, Canoas e Região Metropolitana</strong>.</p>
+          <p class="mt-s">Atendemos empresas de 10 a 200 usuários em <strong>Porto Alegre, Zona Norte, Centro, Guaíba, Canoas e Região Metropolitana</strong>.</p>
         </div>
       </li>
     </ul>
     
-    <h3 style="margin-top:2rem">Serviços relacionados em Porto Alegre</h3>
-    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:.8rem">
+    <p class="mt-s">Quem executa: <a href="/sobre/" title="Trajetória de Giani Maldaner, redes e servidores em Porto Alegre desde 1990">Giani Maldaner, em redes e servidores em Porto Alegre desde 1990</a>. <a href="/certificacoes/" title="Certificações MCSE, MCT, Novell, Citrix e CompTIA">Veja as certificações</a>.</p>
+
+    <h3 class="rel-h">Serviços relacionados em Porto Alegre</h3>
+    <div class="rel-list">
       {% for s in servicos if s.slug != servico.slug %}
-      <a href="/{{ s.slug }}/" class="btn btn-ghost" style="font-size:13px" title="{{ s.titulo_seo }}">{{ s.titulo }}</a>
+      <a href="/{{ s.slug }}/" class="btn btn-ghost btn-xs" title="{{ s.titulo_seo }}">{{ s.titulo }}</a>
       {% endfor %}
     </div>
   </div>

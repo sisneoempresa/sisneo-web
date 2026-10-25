@@ -218,3 +218,46 @@ ul,ol{margin:0;padding:0;list-style:none}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
+
+/* ---- E-E-A-T: trajetória, arquivo, certificações (sem estilos inline: CSP style-src 'self') ---- */
+.nolink{text-decoration:none}
+.mt-s{margin-top:.8rem}
+.more{color:var(--orink);font-weight:700}
+.rel-h{margin-top:2rem}
+.rel-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:.8rem}
+.btn-xs{font-size:13px}
+.foot-links{list-style:none;padding:0;margin:0;display:grid;gap:.4rem}
+.hero-compact{padding-bottom:clamp(32px,5vw,56px)}
+.hero-compact .lead a{color:var(--am)}
+.sub-dark{color:var(--mut)}
+.prose-p{color:var(--mut)}
+.prose-p a{color:var(--am)}
+.timeline{border-left:3px solid var(--or);margin-left:8px;display:grid}
+.tl{position:relative;padding:0 0 2.2rem 1.8rem}
+.tl:last-child{padding-bottom:0}
+.tl::before{content:"";position:absolute;left:-11px;top:.2rem;width:19px;height:19px;border-radius:50%;background:var(--or);border:4px solid var(--paper)}
+.tl-year{font-weight:800;color:var(--orink);font-size:.95rem;letter-spacing:.05em;margin:0 0 .2rem}
+.tl h3{font-size:clamp(1.2rem,2.2vw,1.55rem);margin-bottom:.35em}
+.tl p{color:var(--ink2);max-width:40em}
+.tl .tl-year{color:var(--orink)}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.4rem;margin-top:1.6rem}
+.gallery-sm{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+.fig{margin:0}
+.fig img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;border:1px solid var(--line);background:var(--bg2)}
+.fig figcaption{font-size:.9rem;color:var(--mut);margin-top:.5rem}
+.sec-paper .fig figcaption{color:var(--ink2)}
+.sec-paper .fig img{border-color:var(--pline)}
+.cases{display:grid;gap:1.4rem;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.case{background:#fff;border:1px solid var(--pline);border-top:4px solid var(--or);padding:1.2rem 1.3rem}
+.case h3{font-size:1.2rem}
+.case p{color:var(--ink2);margin-bottom:.5rem}
+.case-client{font-weight:600;font-size:.92rem}
+.cert-list{display:grid;gap:1.4rem;margin-top:1.6rem;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.cert-card{background:#fff;border:1px solid var(--pline);border-top:4px solid var(--or);padding:1.2rem 1.3rem}
+.cert-card h3{font-size:1.3rem;margin-bottom:.6em}
+.cert-period{display:block;font-size:.85rem;font-weight:600;color:var(--orink);letter-spacing:0;margin-top:.2rem}
+.cert-items{display:grid;gap:.35rem;color:var(--ink2);font-size:.98rem}
+.cert-items li{padding-left:1rem;position:relative}
+.cert-items li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--or)}
+.about-main .btn{margin:0 .5rem .5rem 0}
+.sec .cta-row{list-style:none;padding:0}

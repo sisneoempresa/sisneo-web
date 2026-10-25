@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>{% block title %}SISNEO | Suporte em Redes, Servidores e Azure em Porto Alegre | 20+ Anos{% endblock %}</title>
-<meta name="description" content="{% block description %}Suporte em redes, servidores, firewall, migração para Azure e agentes de IA para empresas em Porto Alegre, RS e todo o Brasil. Atendimento direto com Giani Maldaner, 20+ anos, MCSE, Cisco e Azure.{% endblock %}">
-<meta name="author" content="Giani Maldaner - SISNEO">
+<title>{% block title %}SISNEO TI | Suporte em Redes, Servidores e Azure em Porto Alegre | 35 Anos{% endblock %}</title>
+<meta name="description" content="{% block description %}Suporte em redes, servidores, firewall, migração para Azure e agentes de IA para empresas em Porto Alegre, RS e todo o Brasil. Atendimento direto com Giani Maldaner, 35 anos, MCSE, Cisco e Azure.{% endblock %}">
+<meta name="author" content="Giani Maldaner - SISNEO TI">
 <meta name="geo.region" content="BR-RS">
 <meta name="geo.placename" content="Porto Alegre">
 <meta name="geo.position" content="-30.0346;-51.2177">
@@ -20,24 +20,9 @@
 <link rel="apple-touch-icon" href="{{ asset('favicon.svg') }}">
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:site_name" content="SISNEO - Suporte de TI Porto Alegre">
+<meta property="og:site_name" content="SISNEO TI - Suporte de TI Porto Alegre">
 {% block head %}{% endblock %}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": "{{ SITE_URL }}/#website",
-  "name": "SISNEO - Suporte de TI, Redes Cisco e Azure em Porto Alegre",
-  "url": "{{ SITE_URL }}/",
-  "inLanguage": "pt-BR",
-  "publisher": {"@id": "{{ SITE_URL }}/#organization"},
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "{{ SITE_URL }}/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-}
-</script>
+<script type="application/ld+json">{{ person_ld|safe }}</script>
 </head>
 <body class="{% block bodyclass %}{% endblock %}">
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
